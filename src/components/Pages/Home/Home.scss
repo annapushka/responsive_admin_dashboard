@@ -8,9 +8,15 @@
     background: $grayLight;
     transition: 0.5s;
 
+    &__active {
+        width: calc(100% - 3.75rem);
+        left: 3.75rem;
+    }
+
     .topbar {
         background: $white;
         height: 3.75rem;
+        padding: 0 0.625rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -19,21 +25,64 @@
             position: relative;
             width: 3.75rem;
             height: 3.75rem;
-            background: $red;
             cursor: pointer;
-            &::before{
-                content: '\f0c9';
+
+            &::before {
+                content: '';
                 position: absolute;
-                width: 100%;
-                height: 100%;
-                line-height: 3.75rem;
-                font-size: 1.5rem;
+                width: 50%;
+                height: 50%;
+                background-image: url('../../../img/list.svg');
+                background-size: contain;
+                top: 25%;
+                left: 25%;
             }
         }
 
+        &__search {
+            position: relative;
+            width: 25rem;
+            margin: 0 0.625rem;
+
+            label {
+                position: relative;
+                width: 100%;
+            }
+
+            input {
+                width: 100%;
+                height: 2.5rem;
+                border-radius: 2.5rem;
+                padding: 0.3rem 1.25rem 0.3rem 2.5rem;
+                outline: none;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        &__search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 0.25rem;
+        }
+
         &__user {
-            width: 3.75rem;
-            height: 3.75rem;
+            position: relative;
+            min-width: 3.12rem;
+            width: 3.12rem;
+            height: 3.12rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
 }

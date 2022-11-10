@@ -1,19 +1,49 @@
-// @flow 
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
+import { observer } from "mobx-react";
+import dashboardStore from '../../../store/dashboardStore';
+
+import { biSearch } from "fontawesome-bootstrap-icons";
 
 import './Home.scss';
 
 import userAvatar from '../../../img/user_icon.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const Home = () => {
+const classNames = require('classnames');
+
+
+export const Home: React.FC = observer(() => {
+    const { navigationActive, changeNavigationStatus } = dashboardStore;
+
+    const [active, setActive] = useState(navigationActive);
+
+    useEffect(() => { setActive(navigationActive) }, [navigationActive]);
+
+
+    const handlerClick = () => {
+        setActive(!active);
+        dashboardStore.changeNavigationStatus(!active)
+    }
+
+    let activeClass = classNames({
+        'topbar__toggle active': active,
+        'topbar__toggle': !active,
+    });
+
+    let activeClassHome = classNames({
+        'home home__active': active,
+        'home': !active,
+    });
+
     return (
-        <div className='home'>
+        <div className={activeClassHome}>
             <div className="topbar">
-                <div className="topbar__toggle">
+                <div className={activeClass} onClick={handlerClick}>
                 </div>
                 <div className="topbar__search">
                     <label htmlFor="">
                         <input type="text" placeholder='Search...' />
+                        <FontAwesomeIcon icon={biSearch} className="topbar__search-icon" />
                     </label>
                 </div>
                 <div className="topbar__user">
@@ -22,4 +52,4 @@ export const Home = () => {
             </div>
         </div>
     );
-};
+});

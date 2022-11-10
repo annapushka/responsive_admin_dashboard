@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,12 +13,32 @@ import {
     biBoxArrowRight
 } from "fontawesome-bootstrap-icons";
 
+import dashboardStore from '../../store/dashboardStore';
+
 import './Navigation.scss';
 
+const classNames = require('classnames');
 
-export const Navigation = () => {
+const Navigation: React.FC = observer(() => {
+
+    const { navigationActive, changeNavigationStatus } = dashboardStore;
+
+    const [active, setActive] = useState(navigationActive);
+
+    useEffect(() => { setActive(navigationActive) }, [navigationActive]);
+
+    const handlerClick = () => {
+        setActive(!active);
+        changeNavigationStatus(!active)
+    }
+
+    let activeClass = classNames({
+        'navigation active': active,
+        'navigation': !active,
+    });
+
     return (
-        <div className='navigation'>
+        <div className={activeClass} onClick={handlerClick}>
             <ul>
                 <li>
                     <Link to='/'>
@@ -86,4 +107,6 @@ export const Navigation = () => {
             </ul>
         </div>
     );
-};
+});
+
+export default Navigation;

@@ -10,11 +10,11 @@ import { Dashboard } from './components/Pages/Dashboard/Dashboard';
 import { Help } from './components/Pages/Help/Help';
 import { Home } from './components/Pages/Home/Home';
 import { Messages } from './components/Pages/Messages/Messages';
-import { Navigation } from './components/Navigation/Navigation';
 import { NoMatch } from './components/Pages/NoMatch/NoMatch';
 import { Password } from './components/Pages/Password/Password';
 import { DashboardSettings } from './components/Pages/DashboardSettings/DashboardSettings';
 import { Signout } from './components/Pages/Signout/Signout';
+import Navigation from './components/Navigation/Navigation';
 
 import './App.scss';
 
