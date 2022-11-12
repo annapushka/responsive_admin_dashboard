@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { observer } from "mobx-react";
 import dashboardStore from '../../../store/dashboardStore';
 
-import { biSearch } from "fontawesome-bootstrap-icons";
+import { biCartFill, biEyeFill, biSearch, biChatFill, biCurrencyDollar } from "fontawesome-bootstrap-icons";
+
+import { Card } from '../../Card/Card';
 
 import './Home.scss';
 
@@ -22,7 +24,7 @@ export const Home: React.FC = observer(() => {
 
     const handlerClick = () => {
         setActive(!active);
-        dashboardStore.changeNavigationStatus(!active)
+        changeNavigationStatus(!active)
     }
 
     let activeClass = classNames({
@@ -49,6 +51,12 @@ export const Home: React.FC = observer(() => {
                 <div className="topbar__user">
                     <img src={userAvatar} alt="user avatar" />
                 </div>
+            </div>
+            <div className="cardBox">
+                <Card name='Deily Viwes' number='1,402' icon={biEyeFill} />
+                <Card name='Sales' number='80' icon={biCartFill} />
+                <Card name='Comments' number='208' icon={biChatFill} />
+                <Card name='Earning' number='$6,042' icon={biCurrencyDollar} />
             </div>
         </div>
     );

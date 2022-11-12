@@ -1,0 +1,25 @@
+@import '../../styles/colors';
+
+.card {
+    position: relative;
+    background: $white;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &__number {
+        position: relative;
+        font-size: 2em;
+        font-weight: 500;
+    }
+
+    &__name {
+        color: $greyLight;
+    }
+
+    &__icon {
+        height: 1.9rem;
+        color:$blueLight;
+    }
+}
