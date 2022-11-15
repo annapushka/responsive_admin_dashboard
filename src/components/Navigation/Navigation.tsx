@@ -17,7 +17,7 @@ import dashboardStore from '../../store/dashboardStore';
 
 import './Navigation.scss';
 
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 const Navigation: React.FC = observer(() => {
 
@@ -32,7 +32,7 @@ const Navigation: React.FC = observer(() => {
         changeNavigationStatus(!active)
     }
 
-    let activeClass = classNames({
+    const activeClass = classNames({
         'navigation active': active,
         'navigation': !active,
     });
