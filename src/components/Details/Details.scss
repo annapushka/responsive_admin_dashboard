@@ -1,0 +1,37 @@
+@import '../../styles/colors';
+
+.details {
+    position: relative;
+    width: 100%;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.recentOrders {
+    position: relative;
+    display: grid;
+    min-height: 530px;
+    background: $white;
+    width: 100%;
+    padding: 1.25rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h2 {
+        font-weight: 600;
+    }
+}
+
+.btn {
+    position: relative;
+    padding: 0.3rem 0.6rem;
+    background: $blueLight;
+    color: $white;
+    text-decoration: none;
+    border-radius: 0.3rem;
+}

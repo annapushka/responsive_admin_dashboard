@@ -12,6 +12,7 @@ import userAvatar from '../../../img/user_icon.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import classNames from 'classnames';
+import { Details } from '../../Details/Details';
 
 
 export const Home: React.FC = observer(() => {
@@ -53,6 +54,7 @@ export const Home: React.FC = observer(() => {
                 </div>
             </div>
             <CardBox />
+            <Details />
         </div>
     );
 });
