@@ -14,7 +14,7 @@ Dashboard adapted to any device.
 ## Result
 
 <!-- [Сlick me](https://annapushka.github.io/responsive-admin-dashboard)<br> -->
-<p><img src="src/img/result1.jpg" alt="result" width="250px"/></p>
+<p><img src="src/img/result1.jpg" alt="result" width="100%"/></p>
 
 ## Author
 
