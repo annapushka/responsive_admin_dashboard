@@ -5,13 +5,12 @@
     width: 100%;
     padding: 0 1.25rem 1.25rem 1.25rem;
     display: grid;
+    gap: 1.25rem;
     grid-template-columns: 2fr 1fr;
 }
 
 .recentOrders {
     position: relative;
-    display: grid;
-    min-height: 530px;
     background: $white;
     width: 100%;
     padding: 1.25rem;
@@ -21,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 2rem;
 
     h2 {
         font-weight: 600;
@@ -34,4 +34,11 @@
     color: $white;
     text-decoration: none;
     border-radius: 0.3rem;
+}
+
+.recentCustomers {
+    position: relative;
+    min-height: 33rem;
+    background: $white;
+    padding: 1.25rem;
 }

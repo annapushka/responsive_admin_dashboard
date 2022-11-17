@@ -28,7 +28,7 @@ export const Table = (props: Props) => {
                     <td>Window Coolers</td>
                     <td>$110</td>
                     <td>Due</td>
-                    <td><span className='status delivered'>Pending</span></td>
+                    <td><span className='status pending'>Pending</span></td>
                 </tr>
                 <tr>
                     <td>Speakers</td>

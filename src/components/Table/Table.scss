@@ -1,18 +1,83 @@
 @import '../../styles/colors';
 
 .table-details {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 0.625rem;
-        thead tr td {
-            font-weight: 600;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.315rem;
+
+    thead tr td {
+        font-weight: 600;
+        padding: 0 0.315rem;
+
+        &:last-child {
+            text-align: right;
         }
-        tbody tr {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            line-height: 1.8rem;
-            &:hover {
-                background: $blueLight;
-                color: $white;
+
+        &:nth-child(2) {
+            text-align: right;
+            padding-right: 1.25rem;
+        }
+
+        &:nth-child(3) {
+            text-align: center;
+        }
+    }
+
+    tbody tr {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        line-height: 2.2rem;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background: $blueLight;
+            color: $white;
+        }
+
+        td {
+            padding: 0 0.315rem;
+
+            &:last-child {
+                text-align: right;
+            }
+
+            &:nth-child(2) {
+                text-align: right;
+                padding-right: 1.25rem;
+            }
+
+            &:nth-child(3) {
+                text-align: center;
             }
         }
+    }
+
+    .status {
+        position: relative;
+        padding: 0.15rem 0.3rem;
+        color: $white;
+        border-radius: 0.25rem;
+        font-size: 0.875em;
+        font-weight: 300;
+        letter-spacing: 1px;
+
+    }
+
+    .delivered {
+        background: $greenLight;
+    }
+
+    .pending {
+        background: $orange;
+    }
+
+    .return {
+        background: $red;
+    }
+
+    .inprogress {
+        background: $blueLight2;
+    }
 }

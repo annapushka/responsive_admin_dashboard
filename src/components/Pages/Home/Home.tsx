@@ -8,7 +8,7 @@ import { CardBox } from '../../CardBox/CardBox';
 
 import './Home.scss';
 
-import userAvatar from '../../../img/user_icon.svg'
+import userAvatar from '../../../img/user_icon.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import classNames from 'classnames';
