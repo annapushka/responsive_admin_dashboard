@@ -14,6 +14,16 @@
     background: $white;
     width: 100%;
     padding: 1.25rem;
+
+    @media screen and (max-width: 480px) {
+        overflow-x: auto;
+    }
+
+    table {
+        @media screen and (max-width: 480px) {
+            width: 37.5rem;
+        }
+    }
 }
 
 .header {
@@ -24,6 +34,10 @@
 
     h2 {
         font-weight: 600;
+
+        @media screen and (max-width: 768px) {
+            font-size: 1.125em;
+        }
     }
 }
 

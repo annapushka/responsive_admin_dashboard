@@ -80,7 +80,7 @@ export const CustomersBox = () => {
     return (
         <div className="customerBox">
             <table className='customerBox'>
-                <tbody> {
+                <tbody>{
                     customers.map(customer => (
                         <tr key={customer.id} className='customer'>
                             <td >
@@ -93,8 +93,7 @@ export const CustomersBox = () => {
                             </td>
                         </tr>
                     ))
-                }
-                </tbody>
+                }</tbody>
             </table>
         </div>
     );

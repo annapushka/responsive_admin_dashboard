@@ -60,8 +60,28 @@
             }
         }
     }
+
+    @media screen and (max-width: 992px) {
+        left: -18.75rem;
+    }
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
 }
 
 .active {
     width: 3.75rem;
+
+    @media screen and (max-width: 992px) {
+        left: 0;
+        width: 18.75rem;
+    }
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        left: 0;
+    }
 }
