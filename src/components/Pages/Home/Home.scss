@@ -1,34 +1,5 @@
 @import '../../../styles/colors';
 
 .home {
-    position: absolute;
-    width: calc(100% - 18.75rem);
-    left: 18.75rem;
-    min-height: 100vh;
-    background: $grayLight;
-    transition: 0.5s;
 
-    @media screen and (max-width: 992px) {
-        width: 100%;
-        left: 0;
-    }
-
-    &__active {
-        width: calc(100% - 3.75rem);
-        left: 3.75rem;
-
-        @media screen and (max-width: 992px) {
-            width: calc(100% - 18.75rem);
-            left: 18.75rem;
-        }
-    }
-
-    .cardBox {
-        position: relative;
-        width: 100%;
-        padding: 1.25rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.25rem;
-    }
 }
