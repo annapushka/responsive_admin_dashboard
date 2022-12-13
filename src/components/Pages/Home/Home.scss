@@ -23,85 +23,6 @@
         }
     }
 
-    .topbar {
-        background: $white;
-        height: 3.75rem;
-        padding: 0 0.625rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        &__toggle {
-            position: relative;
-            width: 3.75rem;
-            height: 3.75rem;
-            cursor: pointer;
-
-            &::before {
-                content: '';
-                position: absolute;
-                width: 50%;
-                min-width: 1.85rem;
-                height: 50%;
-                background-image: url('../../../img/list.svg');
-                background-size: cover;
-                top: 25%;
-                left: 25%;
-            }
-
-            @media screen and (max-width: 480px) {
-                z-index: 10000;
-            }
-        }
-
-        &__search {
-            position: relative;
-            width: 25rem;
-            margin: 0 0.625rem;
-
-            label {
-                position: relative;
-                width: 100%;
-            }
-
-            input {
-                width: 100%;
-                height: 2.5rem;
-                border-radius: 2.5rem;
-                padding: 0.3rem 1.25rem 0.3rem 2.5rem;
-                outline: none;
-                border: 1px solid rgba(0, 0, 0, 0.2);
-            }
-        }
-
-        &__search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 0.25rem;
-        }
-
-        &__user {
-            position: relative;
-            min-width: 3.12rem;
-            width: 3.12rem;
-            height: 3.12rem;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            margin-right: 1rem;
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-
     .cardBox {
         position: relative;
         width: 100%;
@@ -109,12 +30,5 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1.25rem;
-    }
-
-    .topbar__toggle.active::before {
-        @media screen and (max-width: 480px) {
-            filter: invert(1);
-            background-image: url('../../../img/x.svg');
-        }
     }
 }
