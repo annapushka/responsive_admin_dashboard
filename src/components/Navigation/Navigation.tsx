@@ -10,7 +10,7 @@ import {
     biGearFill,
     biLockFill,
     biBoxArrowRight,
-    biCheck2
+    biCheckCircleFill
 } from "fontawesome-bootstrap-icons";
 
 import dashboardStore from '../../store/dashboardStore';
@@ -74,7 +74,7 @@ const Navigation: React.FC = observer(() => {
                 </li>
                 <li>
                     <Link to='/toDoList'>
-                        <span className='navigation__icon'><FontAwesomeIcon icon={biCheck2} /></span>
+                        <span className='navigation__icon'><FontAwesomeIcon icon={biCheckCircleFill} /></span>
                         <span className='navigation__title'>
                             ToDoList
                         </span>
