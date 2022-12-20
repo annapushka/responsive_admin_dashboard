@@ -1,7 +1,13 @@
 @import '../../../../styles/colors';
 
 .trelloList {
-    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $blueLight;
     border-radius: 1rem;
     width: 300px;
+    margin: 0.5rem;
+    padding: 0.5rem;
 }

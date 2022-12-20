@@ -1,13 +1,17 @@
 // @flow 
 import * as React from 'react';
 import TrelloList from './TrelloList/TrelloList';
-type Props = {
+import listsStore from '../../../store/listsStore';
+import { observer } from "mobx-react";
 
-};
-export const ToDoList = (props: Props) => {
+export const ToDoList = observer(() => {
+    const { lists, cards } = listsStore;
+
     return (
         <div className='toDoList'>
-            <TrelloList title="test" />
+            {lists.map(list => (
+                <TrelloList title={list.title} cards={cards} />
+            ))}
         </div>
     );
-};
+});
