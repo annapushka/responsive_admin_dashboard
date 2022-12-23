@@ -1,4 +1,24 @@
+@import '../../../../styles/colors';
+
 .trelloActionButton{
     display: flex;
+    align-items: center;
     width: 100%;
+    opacity: 0.5;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    background: inherit;
+    cursor: pointer;
+    border-radius: 1rem;
+    p {
+        padding-left: 0.5rem;
+    }
+ 
+}
+
+.__list {
+    opacity: 1;
+    color: $white;
+    background: rgba(0, 0, 0, .15);
+    width: 260px;
 }
