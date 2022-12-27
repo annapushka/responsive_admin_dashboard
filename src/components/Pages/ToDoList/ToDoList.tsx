@@ -15,6 +15,7 @@ export const ToDoList = observer(() => {
             {lists.map(list => (
                 <TrelloList title={list.title} cards={list.cards} key={list.id} />
             ))}
+            <TrelloActionButton list />
         </div>
     );
 });

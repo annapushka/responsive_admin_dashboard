@@ -1,4 +1,3 @@
-import { CastRounded } from '@mui/icons-material';
 import React from 'react';
 import { CardTypes } from '../../../../types/lists';
 import TrelloActionButton from '../TrelloActionButton/TrelloActionButton';

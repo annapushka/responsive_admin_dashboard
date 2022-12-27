@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import { Button, Card } from '@mui/material';
+import Icon from '@mui/material/Icon';
 
 import './TrelloForm.scss';
 
 const TrelloForm = (props: any) => {
-    const { list, closeForm } = props;
 
+    const { list, closeForm, addList } = props;
     const [text, setText] = useState('');
 
     const placeholder = list ? "Enter list title..." : "Enter a title for this card...";
     const buttonTitle = list ? "Add List" : "Add Card";
 
     const hendlerTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value);
+
+    const handleAddList = () => {
+        addList(text);
+        closeForm();
+    }
 
     return (
         <div className='trelloForm'>
@@ -37,13 +43,23 @@ const TrelloForm = (props: any) => {
                     }}
                 />
             </Card>
-            <div className="">
+            <div className="trelloForm__btns">
                 <Button
+                    onMouseDown={handleAddList}
                     variant='contained'
                     style={{
-
+                        color: "white",
+                        backgroundColor: "#8de02c"
                     }}
-                />
+                >
+                    {buttonTitle}
+                </Button>
+                <Icon
+                    style={{
+                        marginLeft: 8,
+                        cursor: "pointer"
+                    }}
+                >close</Icon>
             </div>
         </div>
     );

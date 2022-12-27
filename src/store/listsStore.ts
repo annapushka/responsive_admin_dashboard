@@ -4,9 +4,11 @@ import { ListTypes } from "../types/lists";
 
 class ListsStore {
 
+    listID = 3;
+
     lists: ListTypes[] = [{
         id: 0,
-        title: 'Last Episode',
+        title: 'In progress',
         cards: [
             {
                 id: 0,
@@ -18,7 +20,7 @@ class ListsStore {
         ]
     }, {
         id: 1,
-        title: 'Last Episode',
+        title: 'Test',
         cards: [
             {
                 id: 0,
@@ -30,7 +32,7 @@ class ListsStore {
         ]
     }, {
         id: 2,
-        title: 'Last Episode',
+        title: 'Done',
         cards: [
             {
                 id: 0,
@@ -45,6 +47,16 @@ class ListsStore {
 
     constructor() {
         makeAutoObservable(this);
+    }
+
+    addList = (title: string) => {
+        this.listID++;
+        const newList = {
+            id: this.listID,
+            title: title,
+            cards: []
+        }
+        this.lists.push(newList);
     }
 }
 
