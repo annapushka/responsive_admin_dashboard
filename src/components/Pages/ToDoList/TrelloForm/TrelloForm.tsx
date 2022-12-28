@@ -7,7 +7,7 @@ import './TrelloForm.scss';
 
 const TrelloForm = (props: any) => {
 
-    const { list, closeForm, addList } = props;
+    const { list, closeForm, addCard, addList, listID } = props;
     const [text, setText] = useState('');
 
     const placeholder = list ? "Enter list title..." : "Enter a title for this card...";
@@ -15,8 +15,8 @@ const TrelloForm = (props: any) => {
 
     const hendlerTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value);
 
-    const handleAddList = () => {
-        addList(text);
+    const handleAdd = () => {
+        list ? addList(text) : addCard(text, listID);
         closeForm();
     }
 
@@ -45,7 +45,7 @@ const TrelloForm = (props: any) => {
             </Card>
             <div className="trelloForm__btns">
                 <Button
-                    onMouseDown={handleAddList}
+                    onMouseDown={handleAdd}
                     variant='contained'
                     style={{
                         color: "white",

@@ -5,6 +5,7 @@ import { ListTypes } from "../types/lists";
 class ListsStore {
 
     listID = 3;
+    cardID = 300;
 
     lists: ListTypes[] = [{
         id: 0,
@@ -57,6 +58,19 @@ class ListsStore {
             cards: []
         }
         this.lists.push(newList);
+    }
+
+    addCard = (text: string, listID: number) => {
+        const newCard = {
+            text: text,
+            id: this.cardID,
+        };
+        this.cardID++;
+        this.lists.map(list => {
+            if (listID === list.id) {
+                list.cards = [...list.cards, newCard]
+            }
+        })
     }
 }
 

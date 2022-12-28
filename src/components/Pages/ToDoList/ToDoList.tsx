@@ -13,7 +13,7 @@ export const ToDoList = observer(() => {
     return (
         <div className='toDoList'>
             {lists.map(list => (
-                <TrelloList title={list.title} cards={list.cards} key={list.id} />
+                <TrelloList key={list.id} {...list} />
             ))}
             <TrelloActionButton list />
         </div>

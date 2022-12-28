@@ -8,8 +8,8 @@ import listsStore from '../../../../store/listsStore';
 const TrelloActionButton = observer((props: any) => {
 
     const [formOpen, setFormOpen] = useState(false);
-    const { list } = props;
-    const { addList } = listsStore;
+    const { list, listID } = props;
+    const { addList, addCard } = listsStore;
 
     const closeForm = () => setFormOpen(false);
 
@@ -27,7 +27,7 @@ const TrelloActionButton = observer((props: any) => {
 
     }
 
-    return formOpen ? <TrelloForm closeForm={closeForm} addList={addList} list={list} /> : renderAddButton();
+    return formOpen ? <TrelloForm closeForm={closeForm} addList={addList} addCard={addCard} list={list} listID={listID} /> : renderAddButton();
 });
 
 export default TrelloActionButton;

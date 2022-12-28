@@ -8,16 +8,17 @@ import './TrelloList.scss';
 type Props = {
     title: string;
     cards: CardTypes[];
+    id?: number;
 };
 
-const TrelloList = ({ title, cards }: Props) => {
+const TrelloList = ({ title, cards, id }: Props) => {
     return (
         <div className='trelloList'>
             <h4>{title}</h4>
             {cards.map(card => (
                 <TrelloCard text={card.text} key={card.id} />
             ))}
-            <TrelloActionButton />
+            <TrelloActionButton listID={id} />
         </div>
     );
 };
