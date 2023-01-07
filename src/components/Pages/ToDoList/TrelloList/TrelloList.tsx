@@ -1,7 +1,7 @@
 import React from "react";
 import { CardTypes } from "../../../../types/lists";
 
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable } from "@hello-pangea/dnd";
 
 import TrelloActionButton from "../TrelloActionButton/TrelloActionButton";
 import TrelloCard from "../TrelloCard/TrelloCard";
@@ -11,7 +11,7 @@ import "./TrelloList.scss";
 type Props = {
   title: string;
   cards: CardTypes[];
-  id: number;
+  id: string;
 };
 
 const TrelloList = ({ title, cards, id }: Props) => {

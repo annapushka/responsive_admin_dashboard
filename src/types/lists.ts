@@ -1,10 +1,10 @@
 export interface ListTypes {
-    id?: number;
+    id: string;
     title: string;
     cards: CardTypes[];
 }
 
 export interface CardTypes {
-    id?: number;
+    id: string;
     text: string;
 }
