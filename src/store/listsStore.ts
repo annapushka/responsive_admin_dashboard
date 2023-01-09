@@ -79,13 +79,33 @@ class ListsStore {
     sort = (result: any) => {
         console.log(result)
         const {destination, source} = result;
+
+        // in the same list
         if(source.droppableId === destination.droppableId) {
             const list = this.lists.find(list => source.droppableId === list.id);
             if(list) {
                 const listCards = [...list.cards];
                 const droppableCard = listCards.splice(source.droppableId, 1);
-                listCards.splice(destination.index, 0, ...droppableCard);
+                listCards.splice(source.index, 0, ...droppableCard);
                 list.cards = listCards;
+            }
+        }
+
+        // other list
+        if(source.droppableId !== destination.droppableId) {
+            const listStart = this.lists.find(list => source.droppableId === list.id);
+            let droppableCard;
+            if(listStart) {
+                const listCardsFrom = [...listStart.cards];
+                droppableCard = listCardsFrom.splice(source.droppableId, 1);
+                listStart.cards = listCardsFrom;
+
+            const listEnd = this.lists.find(list => destination.droppableId === list.id);
+                if(listEnd) {
+                    const listCardsTo = [...listEnd.cards];
+                    listCardsTo.splice(destination.index, 0, ...droppableCard)
+                    listEnd.cards = listCardsTo;
+                }
             }
         }
     }
