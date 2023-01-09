@@ -70,7 +70,7 @@ class ListsStore {
         };
         this.cardID++;
         this.lists.map(list => {
-            if (`list-${listID}` === list.id) {
+            if (`${listID}` === list.id) {
                 list.cards = [...list.cards, newCard]
             }
         })
