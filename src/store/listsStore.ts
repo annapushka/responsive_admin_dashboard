@@ -41,6 +41,9 @@ class ListsStore {
             }, {
                 id: `card-${5}`,
                 text: 'Praesent id faucibus ex. Aenean elementum porta metus, sed aliquet ligula dictum in. Proin fermentum vitae velit eget fringilla. Ut in ligula commodo, elementum lectus quis, imperdiet lectus. Sed quis ipsum eget augue lobortis porttitor.',
+            }, {
+                id: `card-${6}`,
+                text: 'Nhfnfhfhsdfs.',
             }
         ]
     }]
@@ -71,6 +74,20 @@ class ListsStore {
                 list.cards = [...list.cards, newCard]
             }
         })
+    }
+
+    sort = (result: any) => {
+        console.log(result)
+        const {destination, source} = result;
+        if(source.droppableId === destination.droppableId) {
+            const list = this.lists.find(list => source.droppableId === list.id);
+            if(list) {
+                const listCards = [...list.cards];
+                const droppableCard = listCards.splice(source.droppableId, 1);
+                listCards.splice(destination.index, 0, ...droppableCard);
+                list.cards = listCards;
+            }
+        }
     }
 }
 

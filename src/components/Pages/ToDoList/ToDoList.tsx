@@ -10,9 +10,16 @@ import TrelloActionButton from "./TrelloActionButton/TrelloActionButton";
 import TrelloList from "./TrelloList/TrelloList";
 
 export const ToDoList = observer(() => {
-  const { lists } = listsStore;
+  const { lists, sort } = listsStore;
 
-  const onDragEnd = () => {};
+  const onDragEnd = (result: any) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+    sort(result);
+  };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
