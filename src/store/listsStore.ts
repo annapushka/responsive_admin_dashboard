@@ -43,8 +43,17 @@ class ListsStore {
                 text: 'Praesent id faucibus ex. Aenean elementum porta metus, sed aliquet ligula dictum in. Proin fermentum vitae velit eget fringilla. Ut in ligula commodo, elementum lectus quis, imperdiet lectus. Sed quis ipsum eget augue lobortis porttitor.',
             }, {
                 id: `card-${6}`,
-                text: 'Nhfnfhfhsdfs.',
-            }
+                text: 'Vivamus consectetur, ligula condimentum suscipit rhoncus...'
+            }, {
+                id: `card-${7}`,
+                text: 'Aenean elementum porta metus, sed aliquet ligula dictum in. Proin fermentum vitae velit eget fringilla. Ut in ligula commodo, elementum lectus quis, imperdiet lectus. Sed quis ipsum eget augue lobortis porttitor.',
+            }, {
+                id: `card-${8}`,
+                text: 'Etiam gravida nisl nec orci imperdiet, a pulvinar lectus faucibus.',
+            }, {
+                id: `card-${9}`,
+                text: 'Sed quis ipsum eget augue lobortis porttitor.',
+            },
         ]
     }]
 
@@ -85,8 +94,8 @@ class ListsStore {
             const list = this.lists.find(list => source.droppableId === list.id);
             if(list) {
                 const listCards = [...list.cards];
-                const droppableCard = listCards.splice(source.droppableId, 1);
-                listCards.splice(source.index, 0, ...droppableCard);
+                const droppableCard = listCards.splice(source.index, 1);
+                listCards.splice(destination.index, 0, ...droppableCard);
                 list.cards = listCards;
             }
         }
@@ -96,16 +105,15 @@ class ListsStore {
             const listStart = this.lists.find(list => source.droppableId === list.id);
             let droppableCard;
             if(listStart) {
-                const listCardsFrom = [...listStart.cards];
-                droppableCard = listCardsFrom.splice(source.droppableId, 1);
-                listStart.cards = listCardsFrom;
-
+                const listCardsStart = [...listStart.cards];
+                droppableCard = listCardsStart.splice(source.index, 1);
+                listStart.cards = listCardsStart;
+            }
             const listEnd = this.lists.find(list => destination.droppableId === list.id);
-                if(listEnd) {
-                    const listCardsTo = [...listEnd.cards];
-                    listCardsTo.splice(destination.index, 0, ...droppableCard)
-                    listEnd.cards = listCardsTo;
-                }
+            if(listEnd && droppableCard) {
+                const listCardsEnd = [...listEnd.cards];
+                listCardsEnd.splice(destination.index, 0, ...droppableCard);
+                listEnd.cards = listCardsEnd;
             }
         }
     }
