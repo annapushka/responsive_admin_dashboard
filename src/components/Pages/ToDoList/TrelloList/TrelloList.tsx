@@ -1,7 +1,7 @@
 import React from "react";
 import { CardTypes } from "../../../../types/lists";
 
-import { Droppable } from "@hello-pangea/dnd";
+import { Draggable, Droppable } from "@hello-pangea/dnd";
 
 import TrelloActionButton from "../TrelloActionButton/TrelloActionButton";
 import TrelloCard from "../TrelloCard/TrelloCard";
@@ -12,31 +12,39 @@ type Props = {
   title: string;
   cards: CardTypes[];
   id: string;
+  index: number;
 };
 
-const TrelloList = ({ title, cards, id }: Props) => {
+const TrelloList = ({ title, cards, id, index }: Props) => {
   return (
-    <Droppable droppableId={String(id)}>
-      {(provided) => (
+    <Draggable draggableId={String(id)} index={index}>
+      {provided => (
         <div
-          {...provided.droppableProps}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
           ref={provided.innerRef}
-          className="trelloList"
         >
-          <h4>{title}</h4>
-          {cards.map((card, index) => (
-            <TrelloCard
-              text={card.text}
-              key={card.id}
-              id={card.id}
-              index={index}
-            />
-          ))}
-          <TrelloActionButton listID={id} />
-          {provided.placeholder}
+          <Droppable droppableId={String(id)}>
+            {(provided) => (
+              <div {...provided.droppableProps} ref={provided.innerRef} className="trelloList">
+                <h4>{title}</h4>
+                {cards.map((card, index) => (
+                  <TrelloCard
+                    text={card.text}
+                    key={card.id}
+                    id={card.id}
+                    index={index}
+                  />
+                ))}
+                <TrelloActionButton listID={id} />
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
         </div>
       )}
-    </Droppable>
+    </Draggable>
+
   );
 };
 

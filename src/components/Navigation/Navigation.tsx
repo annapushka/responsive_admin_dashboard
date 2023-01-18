@@ -57,6 +57,14 @@ const Navigation: React.FC = observer(() => {
                     </Link>
                 </li>
                 <li>
+                    <Link to='/toDoList'>
+                        <span className='navigation__icon'><FontAwesomeIcon icon={biCheckCircleFill} /></span>
+                        <span className='navigation__title'>
+                            ToDoList
+                        </span>
+                    </Link>
+                </li>
+                <li>
                     <Link to='/customers'>
                         <span className='navigation__icon'><FontAwesomeIcon icon={biPeopleFill} /></span>
                         <span className='navigation__title'>
@@ -69,14 +77,6 @@ const Navigation: React.FC = observer(() => {
                         <span className='navigation__icon'><FontAwesomeIcon icon={biChatDotsFill} /></span>
                         <span className='navigation__title'>
                             Messages
-                        </span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to='/toDoList'>
-                        <span className='navigation__icon'><FontAwesomeIcon icon={biCheckCircleFill} /></span>
-                        <span className='navigation__title'>
-                            ToDoList
                         </span>
                     </Link>
                 </li>

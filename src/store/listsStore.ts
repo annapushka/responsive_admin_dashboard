@@ -88,8 +88,13 @@ class ListsStore {
     getCardId = () => Math.random();
 
     sort = (result: any) => {
-        console.log(result)
-        const {destination, source} = result;
+        const {destination, source, type} = result;
+
+        //dragging lists around
+        if(type === 'list') {
+            const list = this.lists.splice(source.index, 1);
+            this.lists.splice(destination.index, 0, ...list);
+        }
 
         // in the same list
         if(source.droppableId === destination.droppableId) {

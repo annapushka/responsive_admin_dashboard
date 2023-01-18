@@ -51,9 +51,9 @@ const App: React.FC = observer(() => {
           <TopBar active={active} handlerClick={handlerClick} />
           <Routes>
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/toDoList' element={<ToDoList />} />
             <Route path='/customers' element={<Customers />} />
             <Route path='/messages' element={<Messages />} />
-            <Route path='/toDoList' element={<ToDoList />} />
             <Route path='/settings' element={<DashboardSettings />} />
             <Route path='/password' element={<Password />} />
             <Route path='/signout' element={<Signout />} />

@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import { observer } from "mobx-react";
-import { DragDropContext } from "@hello-pangea/dnd";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import listsStore from "../../../store/listsStore";
 
 import "./ToDoList.scss";
@@ -13,7 +13,7 @@ export const ToDoList = observer(() => {
   const { lists, sort } = listsStore;
 
   const onDragEnd = (result: any) => {
-    const { destination, source, draggableId } = result;
+    const { destination, source, draggableId, type } = result;
 
     if (!destination) {
       return;
@@ -24,10 +24,16 @@ export const ToDoList = observer(() => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="toDoList">
-        {lists.map((list) => (
-          <TrelloList key={list.id} {...list} />
-        ))}
-        <TrelloActionButton list />
+        <Droppable droppableId="all-lists" direction="horizontal" type="list">
+          {provided => (
+            <div {...provided.droppableProps} ref={provided.innerRef} className="toDoList__lists">
+              {lists.map((list, index) => (
+                <TrelloList key={list.id} {...list} index={index} />
+              ))}
+              <TrelloActionButton list />
+            </div>
+          )}
+        </Droppable>
       </div>
     </DragDropContext>
   );

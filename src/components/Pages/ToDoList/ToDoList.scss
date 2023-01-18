@@ -1,4 +1,8 @@
 .toDoList {
     display: flex;
     flex-wrap: wrap;
+
+    &__lists {
+        display: flex;
+    }
 }
