@@ -5,7 +5,7 @@ import { ListTypes } from "../types/lists";
 class ListsStore {
 
     listID = 3;
-    cardID = 6;
+    cardID = 100;
 
     lists: ListTypes[] = [{
         id: `list-${0}`,
@@ -77,13 +77,15 @@ class ListsStore {
             text: text,
             id: `card-${this.cardID}`,
         };
-        this.cardID++;
+        this.cardID = this.getCardId();
         this.lists.map(list => {
             if (`${listID}` === list.id) {
                 list.cards = [...list.cards, newCard]
             }
         })
     }
+
+    getCardId = () => Math.random();
 
     sort = (result: any) => {
         console.log(result)
