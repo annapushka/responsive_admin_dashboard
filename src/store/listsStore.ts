@@ -51,6 +51,20 @@ class ListsStore {
 
     getCardId = () => Math.floor(Math.random()*10000);
 
+    duplicateList = (listID: string) => {
+        this.listID++;
+        const list = this.lists.find(list => listID === list.id);
+
+        if(list) {
+            const newList = {
+                id: `list-${this.listID}`,
+                title: list.title,
+                cards: list.cards
+            }
+            this.lists = [...this.lists, newList];
+        }
+    }
+
     sort = (result: any) => {
         const {destination, source, type} = result;
 

@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { observer } from 'mobx-react-lite';
+import listsStore from '../../../../../store/listsStore';
+
 import { styled, alpha } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu, { MenuProps } from '@mui/material/Menu';
@@ -52,7 +55,12 @@ const StyledMenu = styled((props: MenuProps) => (
     },
 }));
 
-export default function TrelloListMenu() {
+type Props = {
+    listID: string;
+};
+
+const TrelloListMenu = observer(({ listID }: Props) => {
+    const { duplicateList } = listsStore;
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -61,6 +69,11 @@ export default function TrelloListMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const handleDuplicate = () => {
+        duplicateList(listID);
+        setAnchorEl(null);
+    }
 
     return (
         <div>
@@ -87,7 +100,7 @@ export default function TrelloListMenu() {
                     <EditIcon />
                     Edit
                 </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem onClick={handleDuplicate} disableRipple itemID={listID}>
                     <FileCopyIcon />
                     Duplicate
                 </MenuItem>
@@ -99,4 +112,6 @@ export default function TrelloListMenu() {
             </StyledMenu>
         </div>
     );
-}
+});
+
+export default TrelloListMenu;
