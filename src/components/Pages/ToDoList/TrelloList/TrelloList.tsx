@@ -12,32 +12,28 @@ type Props = {
   title: string;
   cards: CardTypes[];
   id: string;
-  index: number;
+  indexOfList: number;
 };
 
-const TrelloList = ({ title, cards, id, index }: Props) => {
+const TrelloList = ({ title, cards, id, indexOfList }: Props) => {
   return (
-    <Draggable draggableId={String(id)} index={index}>
+    <Draggable draggableId={String(id)} index={indexOfList}>
       {provided => (
-        <div
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
-        >
-          <Droppable droppableId={String(id)}>
+        <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+          <Droppable droppableId={String(id)} type="card" >
             {(provided) => (
               <div {...provided.droppableProps} ref={provided.innerRef} className="trelloList">
                 <h4>{title}</h4>
-                {cards.map((card, index) => (
+                {cards.map((card, i) => (
                   <TrelloCard
                     text={card.text}
                     key={card.id}
                     id={card.id}
-                    index={index}
+                    indexOfCard={i}
                   />
                 ))}
-                <TrelloActionButton listID={id} />
                 {provided.placeholder}
+                <TrelloActionButton listID={id} />
               </div>
             )}
           </Droppable>

@@ -1,5 +1,5 @@
 // @flow
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import listsStore from "../../../store/listsStore";
@@ -28,8 +28,9 @@ export const ToDoList = observer(() => {
           {provided => (
             <div {...provided.droppableProps} ref={provided.innerRef} className="toDoList__lists">
               {lists.map((list, index) => (
-                <TrelloList key={list.id} {...list} index={index} />
+                <TrelloList key={list.id} {...list} indexOfList={index} />
               ))}
+              {provided.placeholder}
               <TrelloActionButton list />
             </div>
           )}
