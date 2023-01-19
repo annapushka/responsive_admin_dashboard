@@ -69,7 +69,7 @@ class ListsStore {
             title: title,
             cards: []
         }
-        this.lists.push(newList);
+        this.lists = [...this.lists, newList];
     }
 
     addCard = (text: string, listID: number) => {
@@ -77,12 +77,11 @@ class ListsStore {
             text: text,
             id: `card-${this.cardID}`,
         };
-        this.lists.map(list => {
-            if (`${listID}` === list.id) {
-                list.cards = [...list.cards, newCard]
-            }
-        })
-        console.log(this.lists)
+        const list = this.lists.find(list => `${listID}` === list.id);
+        if(list) {
+            list.cards = [...list.cards, newCard];
+        }
+        this.lists = [...this.lists];
         this.cardID = this.getCardId();
     }
 
