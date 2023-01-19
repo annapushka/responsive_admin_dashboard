@@ -7,6 +7,7 @@ import TrelloActionButton from "../TrelloActionButton/TrelloActionButton";
 import TrelloCard from "../TrelloCard/TrelloCard";
 
 import "./TrelloList.scss";
+import TrelloListMenu from "./TrelloListMenu/TrelloListMenu";
 
 type Props = {
   title: string;
@@ -23,7 +24,10 @@ const TrelloList = ({ title, cards, id, indexOfList }: Props) => {
           <Droppable droppableId={String(id)} type="card" >
             {(provided) => (
               <div {...provided.droppableProps} ref={provided.innerRef} className="trelloList">
-                <h4>{title}</h4>
+                <div className="trelloList__head">
+                  <h4>{title}</h4>
+                  <TrelloListMenu />
+                </div>
                 {cards.map((card, i) => (
                   <TrelloCard
                     text={card.text}

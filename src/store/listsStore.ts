@@ -4,57 +4,21 @@ import { ListTypes } from "../types/lists";
 
 class ListsStore {
 
-    listID = 3;
-    cardID = 100;
+    listID = 10;
+    cardID = 10;
 
     lists: ListTypes[] = [{
         id: `list-${0}`,
-        title: 'In progress',
-        cards: [
-            {
-                id: `card-${0}`,
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consectetur, ligula condimentum suscipit rhoncus, neque lacus vestibulum libero, in sagittis orci leo eget nunc. Etiam gravida nisl nec orci imperdiet, a pulvinar lectus faucibus.',
-            }, {
-                id: `card-${1}`,
-                text: 'Praesent id faucibus ex. Aenean elementum porta metus, sed aliquet ligula dictum in. Proin fermentum vitae velit eget fringilla. Ut in ligula commodo, elementum lectus quis, imperdiet lectus. Sed quis ipsum eget augue lobortis porttitor.',
-            }
-        ]
+        title: 'To-do list',
+        cards: []
     }, {
         id: `list-${1}`,
-        title: 'Test',
-        cards: [
-            {
-                id: `card-${2}`,
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consectetur, ligula condimentum suscipit rhoncus, neque lacus vestibulum libero, in sagittis orci leo eget nunc. Etiam gravida nisl nec orci imperdiet, a pulvinar lectus faucibus.',
-            }, {
-                id: `card-${3}`,
-                text: 'Praesent id faucibus ex. Aenean elementum porta metus, sed aliquet ligula dictum in. Proin fermentum vitae velit eget fringilla. Ut in ligula commodo, elementum lectus quis, imperdiet lectus. Sed quis ipsum eget augue lobortis porttitor.',
-            }
-        ]
+        title: 'In progress',
+        cards: []
     }, {
         id: `list-${2}`,
         title: 'Done',
-        cards: [
-            {
-                id: `card-${4}`,
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consectetur, ligula condimentum suscipit rhoncus, neque lacus vestibulum libero, in sagittis orci leo eget nunc. Etiam gravida nisl nec orci imperdiet, a pulvinar lectus faucibus.',
-            }, {
-                id: `card-${5}`,
-                text: 'Praesent id faucibus ex. Aenean elementum porta metus, sed aliquet ligula dictum in. Proin fermentum vitae velit eget fringilla. Ut in ligula commodo, elementum lectus quis, imperdiet lectus. Sed quis ipsum eget augue lobortis porttitor.',
-            }, {
-                id: `card-${6}`,
-                text: 'Vivamus consectetur, ligula condimentum suscipit rhoncus...'
-            }, {
-                id: `card-${7}`,
-                text: 'Aenean elementum porta metus, sed aliquet ligula dictum in. Proin fermentum vitae velit eget fringilla. Ut in ligula commodo, elementum lectus quis, imperdiet lectus. Sed quis ipsum eget augue lobortis porttitor.',
-            }, {
-                id: `card-${8}`,
-                text: 'Etiam gravida nisl nec orci imperdiet, a pulvinar lectus faucibus.',
-            }, {
-                id: `card-${9}`,
-                text: 'Sed quis ipsum eget augue lobortis porttitor.',
-            },
-        ]
+        cards: []
     }]
 
 

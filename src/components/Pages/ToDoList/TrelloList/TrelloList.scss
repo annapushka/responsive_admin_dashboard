@@ -10,4 +10,13 @@
     width: 260px;
     margin: 0.5rem;
     padding: 0.5rem;
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        h4 {
+            padding-left: 0.5em;
+        }
+    }
 }
