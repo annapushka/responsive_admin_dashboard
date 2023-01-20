@@ -20,6 +20,11 @@ const TrelloForm = (props: any) => {
         closeForm();
     }
 
+    const handleClose = () => {
+        setText('');
+        closeForm();
+    }
+
     return (
         <div className='trelloForm'>
             <Card style={{
@@ -59,6 +64,7 @@ const TrelloForm = (props: any) => {
                         marginLeft: 8,
                         cursor: "pointer"
                     }}
+                    onMouseDown={handleClose}
                 >close</Icon>
             </div>
         </div>

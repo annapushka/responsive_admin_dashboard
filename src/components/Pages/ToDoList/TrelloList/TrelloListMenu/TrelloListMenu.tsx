@@ -13,6 +13,8 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import IconButton from '@mui/material/IconButton';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+import TrelloListMenuInput from './TrelloListMenuInput';
 
 const StyledMenu = styled((props: MenuProps) => (
     <Menu
@@ -63,6 +65,7 @@ type Props = {
 const TrelloListMenu = observer(({ listID, title }: Props) => {
     const { duplicateList, archiveList, editList } = listsStore;
     const [titleList, setTitle] = useState(title);
+    const [modalEdit, setModalEdit] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -83,9 +86,16 @@ const TrelloListMenu = observer(({ listID, title }: Props) => {
     }
 
     const handleEdit = () => {
+        setModalEdit(false);
         editList(listID, titleList);
         setAnchorEl(null);
     }
+
+    const handleOpenModal = () => {
+        setModalEdit(true);
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(e.target.value);
 
     return (
         <div>
@@ -108,10 +118,22 @@ const TrelloListMenu = observer(({ listID, title }: Props) => {
                 open={open}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleEdit} disableRipple>
-                    <EditIcon />
-                    Edit
-                </MenuItem>
+                {modalEdit ? (
+                    <>
+                        <TrelloListMenuInput title={titleList} handleChange={handleChange} />
+                        <MenuItem onClick={handleEdit} disableRipple>
+                            <DoneAllIcon />
+                            Done
+                        </MenuItem>
+                    </>
+                ) : (
+                    <>
+                        <MenuItem onClick={handleOpenModal} disableRipple>
+                            <EditIcon />
+                            Edit
+                        </MenuItem>
+                    </>
+                )}
                 <MenuItem onClick={handleDuplicate} disableRipple itemID={listID}>
                     <FileCopyIcon />
                     Duplicate
