@@ -65,6 +65,22 @@ class ListsStore {
         }
     }
 
+    archiveList = (listID: string) => {
+        const list = this.lists.find(list => listID === list.id);
+        if(list) {
+            this.lists.splice(this.lists.indexOf(list), 1);
+        }
+        this.lists = [...this.lists];
+    }
+
+    editList = (listID: string, text: string) => {
+        const list = this.lists.find(list => listID === list.id);
+        if(list) {
+            list.title = text;
+        }
+        this.lists = [...this.lists];
+    }
+
     sort = (result: any) => {
         const {destination, source, type} = result;
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import listsStore from '../../../../../store/listsStore';
 
@@ -57,10 +57,12 @@ const StyledMenu = styled((props: MenuProps) => (
 
 type Props = {
     listID: string;
+    title: string
 };
 
-const TrelloListMenu = observer(({ listID }: Props) => {
-    const { duplicateList } = listsStore;
+const TrelloListMenu = observer(({ listID, title }: Props) => {
+    const { duplicateList, archiveList, editList } = listsStore;
+    const [titleList, setTitle] = useState(title);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -72,6 +74,16 @@ const TrelloListMenu = observer(({ listID }: Props) => {
 
     const handleDuplicate = () => {
         duplicateList(listID);
+        setAnchorEl(null);
+    }
+
+    const handleArchive = () => {
+        archiveList(listID);
+        setAnchorEl(null);
+    }
+
+    const handleEdit = () => {
+        editList(listID, titleList);
         setAnchorEl(null);
     }
 
@@ -96,7 +108,7 @@ const TrelloListMenu = observer(({ listID }: Props) => {
                 open={open}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem onClick={handleEdit} disableRipple>
                     <EditIcon />
                     Edit
                 </MenuItem>
@@ -105,7 +117,7 @@ const TrelloListMenu = observer(({ listID }: Props) => {
                     Duplicate
                 </MenuItem>
                 <Divider sx={{ my: 0.5 }} />
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem onClick={handleArchive} disableRipple>
                     <ArchiveIcon />
                     Archive
                 </MenuItem>
