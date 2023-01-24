@@ -19,7 +19,7 @@ type Props = {
 };
 
 const TrelloList = observer(({ title, cards, id, indexOfList }: Props) => {
-  const { duplicateList } = listsStore;
+  const { duplicate } = listsStore;
 
   return (
     <Draggable draggableId={String(id)} index={indexOfList}>
@@ -30,7 +30,7 @@ const TrelloList = observer(({ title, cards, id, indexOfList }: Props) => {
               <div {...provided.droppableProps} ref={provided.innerRef} className="trelloList">
                 <div className="trelloList__head">
                   <h4>{title}</h4>
-                  <TrelloListMenu listID={id} title={title} />
+                  <TrelloListMenu id={id} text={title} type='list' />
                 </div>
                 {cards.map((card, i) => (
                   <TrelloCard

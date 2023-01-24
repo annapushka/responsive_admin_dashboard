@@ -5,6 +5,7 @@ import { Draggable } from "@hello-pangea/dnd";
 
 import "./TrelloCard.scss";
 import { idText } from "typescript";
+import TrelloListMenu from "../TrelloList/TrelloListMenu/TrelloListMenu";
 
 type Props = {
   text: string;
@@ -22,6 +23,9 @@ const TrelloCard = ({ text, id, indexOfCard }: Props) => {
           {...provided.dragHandleProps}
         >
           <Card className="trelloCard">
+            <div className="trelloCard__menu">
+              <TrelloListMenu id={id} text={text} type='card' />
+            </div>
             <Typography variant="body2">{text}</Typography>
           </Card>
         </div>

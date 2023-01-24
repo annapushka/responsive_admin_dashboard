@@ -51,34 +51,40 @@ class ListsStore {
 
     getCardId = () => Math.floor(Math.random()*10000);
 
-    duplicateList = (listID: string) => {
-        this.listID++;
-        const list = this.lists.find(list => listID === list.id);
-
-        if(list) {
-            const newList = {
-                id: `list-${this.listID}`,
-                title: list.title,
-                cards: list.cards
+    duplicate = (listID: string, type: string) => {
+        if(type === 'list') {
+            this.listID++;
+            const list = this.lists.find(list => listID === list.id);
+    
+            if(list) {
+                const newList = {
+                    id: `list-${this.listID}`,
+                    title: list.title,
+                    cards: list.cards
+                }
+                this.lists = [...this.lists, newList];
             }
-            this.lists = [...this.lists, newList];
         }
     }
 
-    archiveList = (listID: string) => {
-        const list = this.lists.find(list => listID === list.id);
-        if(list) {
-            this.lists.splice(this.lists.indexOf(list), 1);
+    archive = (listID: string, type: string) => {
+        if(type === 'list') {
+            const list = this.lists.find(list => listID === list.id);
+            if(list) {
+                this.lists.splice(this.lists.indexOf(list), 1);
+            }
+            this.lists = [...this.lists];
         }
-        this.lists = [...this.lists];
     }
 
-    editList = (listID: string, text: string) => {
-        const list = this.lists.find(list => listID === list.id);
-        if(list) {
-            list.title = text;
+    edit = (listID: string, text: string, type: string) => {
+        if(type === 'list') {
+            const list = this.lists.find(list => listID === list.id);
+            if(list) {
+                list.title = text;
+            }
+            this.lists = [...this.lists];
         }
-        this.lists = [...this.lists];
     }
 
     sort = (result: any) => {

@@ -12,7 +12,6 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import IconButton from '@mui/material/IconButton';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import TrelloListMenuInput from './TrelloListMenuInput';
 
@@ -43,7 +42,7 @@ const StyledMenu = styled((props: MenuProps) => (
         },
         '& .MuiMenuItem-root': {
             '& .MuiSvgIcon-root': {
-                fontSize: 16,
+                fontSize: 14,
                 color: theme.palette.text.secondary,
                 marginRight: theme.spacing(1.5),
             },
@@ -58,13 +57,14 @@ const StyledMenu = styled((props: MenuProps) => (
 }));
 
 type Props = {
-    listID: string;
-    title: string
+    id: string;
+    text: string;
+    type: string;
 };
 
-const TrelloListMenu = observer(({ listID, title }: Props) => {
-    const { duplicateList, archiveList, editList } = listsStore;
-    const [titleList, setTitle] = useState(title);
+const TrelloListMenu = observer(({ id, text, type }: Props) => {
+    const { duplicate, archive, edit } = listsStore;
+    const [title, setTitle] = useState(text);
     const [modalEdit, setModalEdit] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -76,18 +76,18 @@ const TrelloListMenu = observer(({ listID, title }: Props) => {
     };
 
     const handleDuplicate = () => {
-        duplicateList(listID);
+        duplicate(id, type);
         setAnchorEl(null);
     }
 
     const handleArchive = () => {
-        archiveList(listID);
+        archive(id, type);
         setAnchorEl(null);
     }
 
     const handleEdit = () => {
         setModalEdit(false);
-        editList(listID, titleList);
+        edit(id, title, type);
         setAnchorEl(null);
     }
 
@@ -120,7 +120,7 @@ const TrelloListMenu = observer(({ listID, title }: Props) => {
             >
                 {modalEdit ? (
                     <>
-                        <TrelloListMenuInput title={titleList} handleChange={handleChange} />
+                        <TrelloListMenuInput title={title} handleChange={handleChange} />
                         <MenuItem onClick={handleEdit} disableRipple>
                             <DoneAllIcon />
                             Done
@@ -134,7 +134,7 @@ const TrelloListMenu = observer(({ listID, title }: Props) => {
                         </MenuItem>
                     </>
                 )}
-                <MenuItem onClick={handleDuplicate} disableRipple itemID={listID}>
+                <MenuItem onClick={handleDuplicate} disableRipple itemID={id}>
                     <FileCopyIcon />
                     Duplicate
                 </MenuItem>
