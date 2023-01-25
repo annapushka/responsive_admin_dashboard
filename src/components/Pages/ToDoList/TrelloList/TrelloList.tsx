@@ -30,13 +30,14 @@ const TrelloList = observer(({ title, cards, id, indexOfList }: Props) => {
               <div {...provided.droppableProps} ref={provided.innerRef} className="trelloList">
                 <div className="trelloList__head">
                   <h4>{title}</h4>
-                  <TrelloListMenu id={id} text={title} type='list' />
+                  <TrelloListMenu id={id} text={title} type='list' listID={id} />
                 </div>
                 {cards.map((card, i) => (
                   <TrelloCard
                     text={card.text}
                     key={card.id}
                     id={card.id}
+                    listID={id}
                     indexOfCard={i}
                   />
                 ))}

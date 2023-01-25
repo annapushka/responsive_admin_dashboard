@@ -51,10 +51,10 @@ class ListsStore {
 
     getCardId = () => Math.floor(Math.random()*10000);
 
-    duplicate = (listID: string, type: string) => {
+    duplicate = (id: string, type: string, listID: string) => {
         if(type === 'list') {
             this.listID++;
-            const list = this.lists.find(list => listID === list.id);
+            const list = this.lists.find(list => id === list.id);
     
             if(list) {
                 const newList = {
@@ -65,26 +65,61 @@ class ListsStore {
                 this.lists = [...this.lists, newList];
             }
         }
+        if(type === 'card') {
+            this.cardID = this.getCardId();
+            const list = this.lists.find(list => listID === list.id);
+            if(list) {
+                const card = list.cards.find(card => id === card.id);
+                if(card) {
+                    const newCard = {
+                        id: `card-${this.cardID}`,
+                        text: card.text
+                    }
+                    list.cards = [...list.cards, newCard];
+                }
+            } 
+        }
+        this.lists = [...this.lists];
     }
 
-    archive = (listID: string, type: string) => {
+    archive = (id: string, type: string, listID: string) => {
         if(type === 'list') {
-            const list = this.lists.find(list => listID === list.id);
+            const list = this.lists.find(list => id === list.id);
             if(list) {
                 this.lists.splice(this.lists.indexOf(list), 1);
             }
-            this.lists = [...this.lists];
         }
+        if(type === 'card') {
+            const list = this.lists.find(list => listID === list.id);
+            if(list) {
+                const card = list.cards.find(card => id === card.id);
+                if(card) {
+                    list.cards.splice(list.cards.indexOf(card), 1);
+                    list.cards = [...list.cards];
+                }
+            } 
+        }
+        this.lists = [...this.lists];
     }
 
-    edit = (listID: string, text: string, type: string) => {
+    edit = (id: string, text: string, type: string, listID: string) => {
         if(type === 'list') {
-            const list = this.lists.find(list => listID === list.id);
+            const list = this.lists.find(list => id === list.id);
             if(list) {
                 list.title = text;
             }
-            this.lists = [...this.lists];
+        } 
+        if(type === 'card') {
+            const list = this.lists.find(list => listID === list.id);
+            if(list) {
+                const card = list.cards.find(card => id === card.id);
+                if(card) {
+                    card.text = text; 
+                    list.cards = [...list.cards];
+                }
+            } 
         }
+        this.lists = [...this.lists];
     }
 
     sort = (result: any) => {

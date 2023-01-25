@@ -5,9 +5,10 @@ import TextField from '@mui/material/TextField';
 type Props = {
     title: string;
     handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    type: string;
 };
 
-export default function TrelloListMenuInput({ title, handleChange }: Props) {
+export default function TrelloListMenuInput({ title, handleChange, type }: Props) {
     return (
         <Box
             component="form"
@@ -19,7 +20,7 @@ export default function TrelloListMenuInput({ title, handleChange }: Props) {
         >
             <TextField
                 id="outlined-basic"
-                label="List title"
+                label={type === 'list' ? 'List title' : 'Card text'}
                 variant="outlined"
                 size="small"
                 placeholder={title}
