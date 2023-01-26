@@ -1,0 +1,117 @@
+@import '../../styles/colors';
+@import '../../styles/mixin';
+
+.converter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    max-width: 500px;
+    height: 40%;
+    border-radius: 2rem;
+    background: $grayLight;
+    transition: 0.5s linear;
+    box-shadow: $boxShadow;
+    padding: 1rem;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &__input {
+        @include inputLight;
+        height: 2.8rem;
+        flex: 1 1 5rem;
+    }
+
+    &__from {
+        font-size: 1.2em;
+        color: $blue;
+    }
+
+    &__to {
+        font-size: 2em;
+        color: $blue;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    &__output {
+        padding: 2rem;
+    }
+
+    &__switch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border: none;
+        border-radius: 50%;
+        background: $white;
+        box-shadow: inset 20px 20px 60px #bebebe,
+            inset -20px -20px 60px #ffffff;
+        transition: 0.5s linear;
+        cursor: pointer;
+
+        img {
+            width: 2rem;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__currency {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1 1 45%;
+    }
+}
+
+.currency {
+    @include inputLight;
+    height: 3rem;
+    flex: 1 1 5rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 520px) {
+    .converter {
+        height: 60vh;
+        width: 80vw;
+
+        &__currency {
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 1rem;
+            flex: none;
+        }
+
+        &__switch {
+            transform: rotate(-90deg);
+
+            &:hover {
+                transform: rotate(-90deg);
+            }
+        }
+
+        &__input {
+            width: 80%;
+        }
+    }
+
+    .currency {
+        flex: 1 1 1rem;
+    }
+}
