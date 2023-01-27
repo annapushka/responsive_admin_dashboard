@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/responsive-admin-dashboard/static/css/main.78e24a39.css",
+    "main.js": "/responsive-admin-dashboard/static/js/main.9ff5dded.js",
+    "static/media/user_icon.jpg": "/responsive-admin-dashboard/static/media/user_icon.052f86f48a2a5cf8591e.jpg",
+    "static/media/customer_7.jpg": "/responsive-admin-dashboard/static/media/customer_7.48a15d5f01066b8207ea.jpg",
+    "static/media/customer_10.jpg": "/responsive-admin-dashboard/static/media/customer_10.6d685187d2ffa79f0546.jpg",
+    "static/media/customer_2.jpg": "/responsive-admin-dashboard/static/media/customer_2.99865c6df2d3f64fd050.jpg",
+    "static/media/customer_8.jpg": "/responsive-admin-dashboard/static/media/customer_8.463e84aa05fab6f4540d.jpg",
+    "static/media/customer_3.jpg": "/responsive-admin-dashboard/static/media/customer_3.ecede8814a85770899fd.jpg",
+    "static/media/customer_9.jpg": "/responsive-admin-dashboard/static/media/customer_9.1e55960677837b95d22a.jpg",
+    "static/media/customer_4.jpg": "/responsive-admin-dashboard/static/media/customer_4.50fc76eca81bffd953eb.jpg",
+    "static/media/customer_1.jpg": "/responsive-admin-dashboard/static/media/customer_1.f937136448d5c21ea6c2.jpg",
+    "static/media/customer_6.jpg": "/responsive-admin-dashboard/static/media/customer_6.eb8e1d1c8b3ef55e753c.jpg",
+    "static/media/customer_5.jpg": "/responsive-admin-dashboard/static/media/customer_5.8fcd7a98d68f0a2d2faf.jpg",
+    "static/media/arrow.svg": "/responsive-admin-dashboard/static/media/arrow.205190caca128666f4dd38c605df9eec.svg",
+    "index.html": "/responsive-admin-dashboard/index.html",
+    "static/media/list.svg": "/responsive-admin-dashboard/static/media/list.f98b98b4905b36b844a6.svg",
+    "static/media/x.svg": "/responsive-admin-dashboard/static/media/x.85f9f2a1f603d5a966a4.svg",
+    "main.78e24a39.css.map": "/responsive-admin-dashboard/static/css/main.78e24a39.css.map",
+    "main.9ff5dded.js.map": "/responsive-admin-dashboard/static/js/main.9ff5dded.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78e24a39.css",
+    "static/js/main.9ff5dded.js"
+  ]
+}
