@@ -7,7 +7,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 70%;
-    max-width: 500px;
+    max-width: 400px;
     height: 40%;
     border-radius: 2rem;
     background: $grayLight;
@@ -76,6 +76,7 @@
         justify-content: space-between;
         align-items: center;
         flex: 1 1 45%;
+        flex-wrap: wrap;
     }
 }
 
@@ -84,6 +85,8 @@
     height: 3rem;
     flex: 1 1 5rem;
     cursor: pointer;
+    max-width: fit-content;
+    width: 100%;
 }
 
 @media screen and (max-width: 520px) {

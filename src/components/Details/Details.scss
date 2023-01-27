@@ -14,6 +14,7 @@
     background: $white;
     width: 100%;
     padding: 1.25rem;
+    border-radius: 0.5rem;
 
     @media screen and (max-width: 480px) {
         overflow-x: auto;
@@ -55,4 +56,5 @@
     min-height: 33rem;
     background: $white;
     padding: 1.25rem;
+    border-radius: 0.5rem;
 }
