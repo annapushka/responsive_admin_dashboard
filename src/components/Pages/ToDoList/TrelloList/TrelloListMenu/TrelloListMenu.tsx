@@ -62,7 +62,7 @@ type Props = {
 };
 
 const TrelloListMenu = observer(({ id, text, type, listID }: Props) => {
-    const { duplicate, archive, edit } = listsStore;
+    const { duplicateItem, archiveItem, editItem } = listsStore;
     const [title, setTitle] = useState(text);
     const [modalEdit, setModalEdit] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -75,18 +75,18 @@ const TrelloListMenu = observer(({ id, text, type, listID }: Props) => {
     };
 
     const handleDuplicate = () => {
-        duplicate(id, type, listID);
+        duplicateItem(id, type, listID);
         setAnchorEl(null);
     }
 
     const handleArchive = () => {
-        archive(id, type, listID);
+        archiveItem(id, type, listID);
         setAnchorEl(null);
     }
 
     const handleEdit = () => {
         setModalEdit(true);
-        edit(id, title, type, listID);
+        editItem(id, title, type, listID);
     }
 
     const handleOpenModal = () => {

@@ -1,6 +1,4 @@
 import React from "react";
-import { observer } from 'mobx-react-lite';
-import listsStore from '../../../../store/listsStore';
 import { CardTypes } from "../../../../types/lists";
 
 import { Draggable, Droppable } from "@hello-pangea/dnd";
@@ -18,8 +16,7 @@ type Props = {
   indexOfList: number;
 };
 
-const TrelloList = observer(({ title, cards, id, indexOfList }: Props) => {
-  const { duplicate } = listsStore;
+const TrelloList = ({ title, cards, id, indexOfList }: Props) => {
 
   return (
     <Draggable draggableId={String(id)} index={indexOfList}>
@@ -51,6 +48,6 @@ const TrelloList = observer(({ title, cards, id, indexOfList }: Props) => {
     </Draggable>
 
   );
-});
+};
 
 export default TrelloList;

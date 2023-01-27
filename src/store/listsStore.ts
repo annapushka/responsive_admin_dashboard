@@ -51,7 +51,7 @@ class ListsStore {
 
     getCardId = () => Math.floor(Math.random()*10000);
 
-    duplicate = (id: string, type: string, listID: string) => {
+    duplicateItem = (id: string, type: string, listID: string) => {
         if(type === 'list') {
             this.listID++;
             const list = this.lists.find(list => id === list.id);
@@ -82,7 +82,7 @@ class ListsStore {
         this.lists = [...this.lists];
     }
 
-    archive = (id: string, type: string, listID: string) => {
+    archiveItem = (id: string, type: string, listID: string) => {
         if(type === 'list') {
             const list = this.lists.find(list => id === list.id);
             if(list) {
@@ -102,7 +102,7 @@ class ListsStore {
         this.lists = [...this.lists];
     }
 
-    edit = (id: string, text: string, type: string, listID: string) => {
+    editItem = (id: string, text: string, type: string, listID: string) => {
         if(type === 'list') {
             const list = this.lists.find(list => id === list.id);
             if(list) {
