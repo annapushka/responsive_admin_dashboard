@@ -6,3 +6,15 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
 }
+
+@media screen and (max-width: 992px) {
+    .dashboard .cardBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dashboard .cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

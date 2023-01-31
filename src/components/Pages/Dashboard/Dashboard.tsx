@@ -9,7 +9,7 @@ type Props = {
 };
 export const Dashboard = (props: Props) => {
     return (
-        <div>
+        <div className='dashboard'>
             <CardBox />
             <Details />
         </div>

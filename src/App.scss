@@ -36,15 +36,3 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
-
-@media screen and (max-width: 992px) {
-  .home .cardBox {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .home .cardBox {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
