@@ -91,6 +91,7 @@
 @media screen and (max-width: 520px) {
     .converter {
         height: 60vh;
+        max-height: 360px;
         width: 80vw;
 
         &__currency {
