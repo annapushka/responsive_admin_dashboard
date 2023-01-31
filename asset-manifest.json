@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/responsive-admin-dashboard/static/css/main.bed78a83.css",
+    "main.css": "/responsive-admin-dashboard/static/css/main.8cd0627d.css",
     "main.js": "/responsive-admin-dashboard/static/js/main.ea688533.js",
     "static/js/227.475dffdd.chunk.js": "/responsive-admin-dashboard/static/js/227.475dffdd.chunk.js",
     "static/js/526.0eba09cd.chunk.js": "/responsive-admin-dashboard/static/js/526.0eba09cd.chunk.js",
@@ -21,7 +21,7 @@
     "index.html": "/responsive-admin-dashboard/index.html",
     "static/media/list.svg": "/responsive-admin-dashboard/static/media/list.f98b98b4905b36b844a6.svg",
     "static/media/x.svg": "/responsive-admin-dashboard/static/media/x.85f9f2a1f603d5a966a4.svg",
-    "main.bed78a83.css.map": "/responsive-admin-dashboard/static/css/main.bed78a83.css.map",
+    "main.8cd0627d.css.map": "/responsive-admin-dashboard/static/css/main.8cd0627d.css.map",
     "main.ea688533.js.map": "/responsive-admin-dashboard/static/js/main.ea688533.js.map",
     "227.475dffdd.chunk.js.map": "/responsive-admin-dashboard/static/js/227.475dffdd.chunk.js.map",
     "526.0eba09cd.chunk.js.map": "/responsive-admin-dashboard/static/js/526.0eba09cd.chunk.js.map",
@@ -29,7 +29,7 @@
     "237.7ea4782f.chunk.js.map": "/responsive-admin-dashboard/static/js/237.7ea4782f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bed78a83.css",
+    "static/css/main.8cd0627d.css",
     "static/js/main.ea688533.js"
   ]
 }
