@@ -11,6 +11,7 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import IconButton from '@mui/material/IconButton';
+import AlarmIcon from '@mui/icons-material/Alarm';
 import TrelloListMenuInput from './TrelloListMenuInput';
 
 const StyledMenu = styled((props: MenuProps) => (
@@ -131,6 +132,12 @@ const TrelloListMenu = observer(({ id, text, type, listID }: Props) => {
                     <FileCopyIcon />
                     Duplicate
                 </MenuItem>
+                {type === 'card' && (
+                    <MenuItem disableRipple itemID={id}>
+                        <AlarmIcon />
+                        Deadline
+                    </MenuItem>
+                )}
                 <Divider sx={{ my: 0.5 }} />
                 <MenuItem onClick={handleArchive} disableRipple>
                     <ArchiveIcon />
