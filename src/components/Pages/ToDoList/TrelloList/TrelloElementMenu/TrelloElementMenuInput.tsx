@@ -8,7 +8,7 @@ type Props = {
     type: string;
 };
 
-export default function TrelloListMenuInput({ title, handleChange, type }: Props) {
+export default function TrelloElementMenuInput({ title, handleChange, type }: Props) {
     return (
         <Box
             component="form"

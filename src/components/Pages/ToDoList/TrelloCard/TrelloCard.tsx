@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import { Draggable } from "@hello-pangea/dnd";
 
 import "./TrelloCard.scss";
-import TrelloListMenu from "../TrelloList/TrelloListMenu/TrelloListMenu";
+import TrelloElementMenu from "../TrelloList/TrelloElementMenu/TrelloElementMenu";
 
 type Props = {
   text: string;
@@ -24,7 +24,7 @@ const TrelloCard = ({ text, id, indexOfCard, listID }: Props) => {
         >
           <Card className="trelloCard">
             <div className="trelloCard__menu">
-              <TrelloListMenu id={id} text={text} type='card' listID={listID} />
+              <TrelloElementMenu id={id} text={text} type='card' listID={listID} />
             </div>
             <Typography variant="body2">{text}</Typography>
           </Card>
