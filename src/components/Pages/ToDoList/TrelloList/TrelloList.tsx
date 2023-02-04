@@ -32,6 +32,7 @@ const TrelloList = ({ title, cards, id, indexOfList }: Props) => {
                 {cards.map((card, i) => (
                   <TrelloCard
                     text={card.text}
+                    deadline={card.deadline}
                     key={card.id}
                     id={card.id}
                     listID={id}

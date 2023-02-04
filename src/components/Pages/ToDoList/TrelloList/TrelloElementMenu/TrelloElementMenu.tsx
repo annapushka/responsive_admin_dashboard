@@ -24,12 +24,14 @@ type Props = {
 };
 
 const TrelloElementMenu = observer(({ id, text, type, listID }: Props) => {
-    const { duplicateItem, archiveItem, editItem } = listsStore;
+    const { duplicateItem, archiveItem, editItem, addDeadline } = listsStore;
     const [title, setTitle] = useState(text);
     const [modalEdit, setModalEdit] = useState(false);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [deadlineInput, setDeadlineInput] = useState(false);
+
     const open = Boolean(anchorEl);
+
     const handleClick = (event: MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
@@ -59,7 +61,7 @@ const TrelloElementMenu = observer(({ id, text, type, listID }: Props) => {
     }
 
     const handleDeadline = (value: Dayjs | null) => {
-        console.log(value);
+        addDeadline(id, listID, dayjs(value))
         setDeadlineInput(false);
         setAnchorEl(null);
     }

@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import dayjs, { Dayjs } from 'dayjs';
 import { ListTypes } from "../types/lists";
 
 
@@ -119,6 +120,18 @@ class ListsStore {
                 }
             } 
         }
+        this.lists = [...this.lists];
+    }
+
+    addDeadline = (id: string, listID: string, deadline: Dayjs) => {
+            const list = this.lists.find(list => listID === list.id);
+            if(list) {
+                const card = list.cards.find(card => id === card.id);
+                if(card) {
+                    card.deadline = deadline; 
+                    list.cards = [...list.cards];
+                }
+            } 
         this.lists = [...this.lists];
     }
 

@@ -1,3 +1,4 @@
+import dayjs, { Dayjs } from 'dayjs';
 export interface ListTypes {
     id: string;
     title: string;
@@ -7,4 +8,5 @@ export interface ListTypes {
 export interface CardTypes {
     id: string;
     text: string;
+    deadline?: Dayjs;
 }

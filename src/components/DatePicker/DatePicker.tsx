@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/ru';
 import Stack from '@mui/material/Stack';
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function DatePicker({ handleDeadline }: Props) {
-    const [value, setValue] = React.useState<Dayjs | null>(
+    const [value, setValue] = useState<Dayjs | null>(
         dayjs(),
     );
 
