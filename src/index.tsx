@@ -3,6 +3,7 @@ import { Provider } from "mobx-react";
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
+import "./i18n";
 
 
 const root = ReactDOM.createRoot(
@@ -10,8 +11,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <React.Suspense fallback="loading">
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </React.Suspense>
   </Provider>
 );
