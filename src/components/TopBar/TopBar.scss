@@ -57,6 +57,13 @@
         top: 0.25rem;
     }
 
+    &__user-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+    }
+
     &__user {
         position: relative;
         min-width: 3.12rem;

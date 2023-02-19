@@ -1,19 +1,11 @@
 @import '../../styles/colors';
+@import '../../styles/mixin';
 
 
 .langToggleBtn {
     color: $blue;
-    background-color: $grayLight;
-    border: none;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-
-    &:hover {
-        box-shadow:
-            0px 2px 1px -1px rgb(0 0 0 / 20%),
-            0px 1px 1px 0px rgb(0 0 0 / 14%),
-            0px 1px 3px 0px rgb(0 0 0 / 12%);
-    }
+    @include greyBtn;
+    width: 2.5rem;
+    height: 2.5rem;
+    opacity: 0.8;
 }

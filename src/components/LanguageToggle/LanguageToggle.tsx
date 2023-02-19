@@ -1,22 +1,28 @@
 // @flow 
-import * as React from 'react';
-import { useTranslation, Trans } from "react-i18next";
+import React, { useEffect, useState } from 'react';
 import i18next from "i18next";
 
 import './LanguageToggle.scss';
-import { useStaticRendering } from 'mobx-react-lite';
 
-
-const lngs = ['en', 'ru'];
+const lngs = {
+    en: "en",
+    ru: "ru",
+};
 
 type Props = {
 
 };
 export const LanguageToggle = (props: Props) => {
 
-    const handleCHangeLanguage = (e: any) => {
-        i18next.changeLanguage(e.target.value === lngs[0] ? lngs[1] : lngs[0])
+    const [lang, setLang] = useState(lngs.en)
+
+    const handleCHangeLanguage = () => {
+        setLang(prev => prev === lngs.en ? lngs.ru : lngs.en)
     }
+
+    useEffect(() => {
+        i18next.changeLanguage(lang)
+    }, [lang])
 
 
     return (
@@ -24,9 +30,9 @@ export const LanguageToggle = (props: Props) => {
             type="submit"
             onClick={handleCHangeLanguage}
             className='langToggleBtn'
-            value={i18next.resolvedLanguage}
+            value={lang}
         >
-            {i18next.resolvedLanguage}
+            {lang}
         </button>
     );
 };

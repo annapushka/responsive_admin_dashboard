@@ -1,5 +1,6 @@
 // @flow 
 import * as React from 'react';
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { biSearch } from "fontawesome-bootstrap-icons";
 
@@ -16,10 +17,14 @@ type Props = {
 };
 export const TopBar = (props: Props) => {
 
+    const { t } = useTranslation();
+
     const activeClass = classNames({
         'topbar__toggle active': props.active,
         'topbar__toggle': !props.active,
     });
+
+    const placeholder = `${t('pages.topBar.search')}...`
 
     return (
         <div className="topbar">
@@ -27,13 +32,15 @@ export const TopBar = (props: Props) => {
             </div>
             <div className="topbar__search">
                 <label htmlFor="">
-                    <input type="text" placeholder='Search...' />
+                    <input type="text" placeholder={placeholder} />
                     <FontAwesomeIcon icon={biSearch} className="topbar__search-icon" />
                 </label>
             </div>
-            <LanguageToggle />
-            <div className="topbar__user">
-                <img src={userAvatar} alt="user avatar" />
+            <div className='topbar__user-wrapper'>
+                <LanguageToggle />
+                <div className="topbar__user">
+                    <img src={userAvatar} alt="user avatar" />
+                </div>
             </div>
         </div>
     );
