@@ -8,6 +8,7 @@ import userAvatar from '../../img/user_icon.jpg'
 import './TopBar.scss';
 
 import classNames from 'classnames';
+import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 
 type Props = {
     active: boolean;
@@ -30,6 +31,7 @@ export const TopBar = (props: Props) => {
                     <FontAwesomeIcon icon={biSearch} className="topbar__search-icon" />
                 </label>
             </div>
+            <LanguageToggle />
             <div className="topbar__user">
                 <img src={userAvatar} alt="user avatar" />
             </div>

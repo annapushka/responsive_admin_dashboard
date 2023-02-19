@@ -12,9 +12,6 @@ import {
     biBoxArrowRight,
     biCheckCircleFill
 } from "fontawesome-bootstrap-icons";
-import { useTranslation, Trans } from "react-i18next";
-import i18next from "i18next";
-
 
 import dashboardStore from '../../store/dashboardStore';
 
@@ -39,11 +36,6 @@ const Navigation: React.FC = observer(() => {
         'navigation active': active,
         'navigation': !active,
     });
-
-    const lngs = {
-        en: { nativeName: "English" },
-        ru: { nativeName: "Russian" },
-    };
 
     return (
         <div className={activeClass} onClick={handlerClick}>
@@ -113,18 +105,6 @@ const Navigation: React.FC = observer(() => {
                     </Link>
                 </li>
             </ul>
-            <div>
-                {Object.keys(lngs).map((lng) => (
-                    <button
-                        type="submit"
-                        key={lng}
-                        onClick={() => i18next.changeLanguage(lng)}
-                        disabled={i18next.resolvedLanguage === lng}
-                    >
-                        {lngs[lng].nativeName}
-                    </button>
-                ))}
-            </div>
         </div>
     );
 });
