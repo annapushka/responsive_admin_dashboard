@@ -1,7 +1,20 @@
 {
     "pages": {
-        "topBar": {
-            "search": "Поиск"
+
+    },
+    "topBar": {
+        "search": "Поиск"
+    },
+    "navigation": {
+        "pageTitle": {
+            "brandName": "Имя бренда",
+            "dashboard": "Информационная панель",
+            "toDoList": "Список дел",
+            "customers": "Клиенты",
+            "messages": "Сообщения",
+            "settings": "Настройки",
+            "password": "Пароль",
+            "signOut": "Выход"
         }
     }
 }

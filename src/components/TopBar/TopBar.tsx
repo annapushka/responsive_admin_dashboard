@@ -24,7 +24,7 @@ export const TopBar = (props: Props) => {
         'topbar__toggle': !props.active,
     });
 
-    const placeholder = `${t('pages.topBar.search')}...`
+    const placeholder = `${t('topBar.search')}...`
 
     return (
         <div className="topbar">
