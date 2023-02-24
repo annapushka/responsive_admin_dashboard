@@ -4,14 +4,17 @@ import { Button, Card } from '@mui/material';
 import Icon from '@mui/material/Icon';
 
 import './TrelloForm.scss';
+import { useTranslation } from 'react-i18next';
 
 const TrelloForm = (props: any) => {
 
     const { list, closeForm, addCard, addList, listID } = props;
     const [text, setText] = useState('');
 
-    const placeholder = list ? "Enter list title..." : "Enter a title for this card...";
-    const buttonTitle = list ? "Add List" : "Add Card";
+    const { t } = useTranslation();
+
+    const placeholder = list ? t('pages.toDoList.addListTitle') : t('pages.toDoList.addCardTitle');
+    const buttonTitle = list ? t('pages.toDoList.addList') : t('pages.toDoList.addCard');
 
     const hendlerTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value);
 

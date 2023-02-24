@@ -4,6 +4,7 @@ import './TrelloActionButton.scss';
 import TrelloForm from '../TrelloForm/TrelloForm';
 import { observer } from 'mobx-react-lite';
 import listsStore from '../../../../store/listsStore';
+import { useTranslation } from 'react-i18next';
 
 const TrelloActionButton = observer((props: any) => {
 
@@ -11,11 +12,13 @@ const TrelloActionButton = observer((props: any) => {
     const { list, listID } = props;
     const { addList, addCard } = listsStore;
 
+    const { t } = useTranslation();
+
     const closeForm = () => setFormOpen(false);
 
     const renderAddButton = () => {
 
-        const buttonText = list ? "Add another list" : "Add another card";
+        const buttonText = list ? t('pages.toDoList.addList') : t('pages.toDoList.addCard');
         const buttonStyle = list ? "trelloActionButton __list" : " trelloActionButton";
 
         return (
