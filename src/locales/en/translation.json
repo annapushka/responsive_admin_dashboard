@@ -10,6 +10,31 @@
                 "inProgress": "In progress",
                 "done": "Done"
             }
+        },
+        "dashboard": {
+            "cards": {
+                "deilyViwes": "Deily Viwes",
+                "sales": "Sales",
+                "comments": "Comments",
+                "earning": "Earning"
+            },
+            "details": {
+                "recentOrders": "Recent Orders",
+                "recentCustomers": "Recent Customers",
+                "tableCol": {
+                    "name": "Name",
+                    "price": "Price",
+                    "payment": "Payment",
+                    "status": "Status"
+                },
+                "status": {
+                    "delivered": "Delivered",
+                    "pending": "Pending",
+                    "return": "Return",
+                    "inProgress": "In Progress",
+                    "viewAll": "View All"
+                }
+            }
         }
     },
     "topBar": {

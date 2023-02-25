@@ -3,26 +3,31 @@ import { biCartFill, biEyeFill, biChatFill, biCurrencyDollar } from "fontawesome
 
 import { Card } from '../Card/Card';
 import './CardBox.scss';
+import { useTranslation } from 'react-i18next';
+
 
 export const CardBox = () => {
+
+    const { t } = useTranslation();
+
     const cards = [{
         id: 11,
-        name: 'Deily Viwes',
+        name: t('pages.dashboard.cards.deilyViwes'),
         number: '1,402',
         icon: biEyeFill
     }, {
         id: 12,
-        name: 'Sales',
+        name: t('pages.dashboard.cards.sales'),
         number: '80',
         icon: biCartFill
     }, {
         id: 13,
-        name: 'Comments',
+        name: t('pages.dashboard.cards.comments'),
         number: '208',
         icon: biChatFill
     }, {
         id: 14,
-        name: 'Earning',
+        name: t('pages.dashboard.cards.earning'),
         number: '$6,042',
         icon: biCurrencyDollar
     }]

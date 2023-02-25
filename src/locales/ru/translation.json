@@ -10,6 +10,31 @@
                 "inProgress": "В работе",
                 "done": "Выполнено"
             }
+        },
+        "dashboard": {
+            "cards": {
+                "deilyViwes": "Просмотры",
+                "sales": "Продажи",
+                "comments": "Комментарии",
+                "earning": "Прибыль"
+            },
+            "details": {
+                "recentOrders": "Последние заказы",
+                "recentCustomers": "Последние клиенты",
+                "tableCol": {
+                    "name": "Имя",
+                    "price": "Цена",
+                    "payment": "Платеж",
+                    "status": "Статус"
+                },
+                "status": {
+                    "delivered": "Доставлено",
+                    "pending": "В ожидании",
+                    "return": "Возврат",
+                    "inProgress": "В процессе",
+                    "viewAll": "Просмотреть все"
+                }
+            }
         }
     },
     "topBar": {
