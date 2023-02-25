@@ -28,26 +28,30 @@ class ListsStore {
     }
 
     addList = (title: string) => {
-        this.listID++;
-        const newList = {
-            id: `list-${this.listID}`,
-            title: title,
-            cards: []
+        if(title.length) {
+            this.listID++;
+            const newList = {
+                id: `list-${this.listID}`,
+                title: title,
+                cards: []
+            }
+            this.lists = [...this.lists, newList];
         }
-        this.lists = [...this.lists, newList];
     }
 
     addCard = (text: string, listID: number) => {
-        const newCard = {
-            text: text,
-            id: `card-${this.cardID}`,
-        };
-        const list = this.lists.find(list => `${listID}` === list.id);
-        if(list) {
-            list.cards = [...list.cards, newCard];
+        if(text.length) {
+            const newCard = {
+                text: text,
+                id: `card-${this.cardID}`,
+            };
+            const list = this.lists.find(list => `${listID}` === list.id);
+            if(list) {
+                list.cards = [...list.cards, newCard];
+            }
+            this.lists = [...this.lists];
+            this.cardID = this.getCardId();
         }
-        this.lists = [...this.lists];
-        this.cardID = this.getCardId();
     }
 
     getCardId = () => Math.floor(Math.random()*10000);

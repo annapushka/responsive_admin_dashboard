@@ -3,8 +3,9 @@
 
 
 .langToggleBtn {
-    color: $blue;
+    color: $white;
     @include greyBtn;
+    border: 1px solid $gray;
     width: 2.5rem;
     height: 2.5rem;
     opacity: 0.8;
