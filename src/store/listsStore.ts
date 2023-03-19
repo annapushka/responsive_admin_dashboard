@@ -9,15 +9,15 @@ class ListsStore {
     cardID = 10;
 
     lists: ListTypes[] = [{
-        id: `list-${0}`,
+        id: `list-0`,
         title: 'To-do list',
         cards: []
     }, {
-        id: `list-${1}`,
+        id: `list-1`,
         title: 'In progress',
         cards: []
     }, {
-        id: `list-${2}`,
+        id: `list-2`,
         title: 'Done',
         cards: []
     }]

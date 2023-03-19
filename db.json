@@ -9,7 +9,17 @@
     "body": "some comment",
     "postId": 1
   }],
-  "profile": {
-    "name": "typicode"
-  }
+   "lists":  [{
+    "id": "list-0",
+    "title": "To-do list",
+    "cards": []
+}, {
+    "id": "list-1",
+    "title": "In progress",
+    "cards": []
+}, {
+    "id": "list-2",
+    "title": "Done",
+    "cards": []
+}]
 }
