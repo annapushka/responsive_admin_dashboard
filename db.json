@@ -1,25 +1,59 @@
 {
-  "posts": [{
-    "id": 1,
-    "title": "json-server",
-    "author": "typicode"
-  }],
-  "comments": [{
-    "id": 1,
-    "body": "some comment",
-    "postId": 1
-  }],
-   "lists":  [{
-    "id": "list-0",
-    "title": "To-do list",
-    "cards": []
-}, {
-    "id": "list-1",
-    "title": "In progress",
-    "cards": []
-}, {
-    "id": "list-2",
-    "title": "Done",
-    "cards": []
-}]
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "lists": [
+    {
+      "id": "list-0",
+      "title": "Todo",
+      "cards": [
+        {
+          "text": "g",
+          "id": "card-8319",
+          "deadline": "2023-03-20T08:01:58.000Z"
+        },
+        {
+          "text": "ghg",
+          "id": "card-315",
+          "deadline": "2023-03-26T08:02:06.000Z"
+        },
+        {
+          "id": "card-1387",
+          "text": "ghg"
+        }
+      ]
+    },
+    {
+      "id": "list-1",
+      "title": "In progress",
+      "cards": [
+        {
+          "text": "strrt",
+          "id": "card-10",
+          "deadline": "2023-03-09T08:00:52.000Z"
+        },
+        {
+          "text": "dgdgh",
+          "id": "card-1003",
+          "deadline": "2023-03-30T08:01:06.000Z"
+        }
+      ]
+    },
+    {
+      "id": "list-2",
+      "title": "Done",
+      "cards": []
+    }
+  ]
 }
