@@ -6,12 +6,11 @@ const url = 'http://localhost:3001';
 
 class ListsStore {
 
-    listID = 10;
-    cardID = 10;
+    listID = 1;
+    cardID = 1;
     isLoaded = false;
     lists: ListTypes[] = [];
     error = undefined;
-
 
     constructor() {
         makeAutoObservable(this);
@@ -240,6 +239,27 @@ class ListsStore {
                     listEnd.cards.splice(destination.index, 0, ...droppableCard);
                 }
             }
+
+            this.lists.forEach(list => {
+                fetch(url + `/lists/${list.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify(list)
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error('Something went wrong ...');
+                        }
+                    })
+                    .catch(error => {
+                        this.error = error;
+                    });
+            })
+            this.loadData()
         }
     }
 }
