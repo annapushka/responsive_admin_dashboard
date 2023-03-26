@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import dayjs, { Dayjs } from 'dayjs';
-import { ListTypes } from "../types/lists";
+import { IList } from "../types/lists";
 
 const url = 'http://localhost:3001';
 
@@ -9,7 +9,7 @@ class ListsStore {
     listID = 1;
     cardID = 1;
     isLoaded = false;
-    lists: ListTypes[] = [];
+    lists: IList[] = [];
     error = undefined;
 
     constructor() {
@@ -36,7 +36,7 @@ class ListsStore {
             });
     }
     
-    post = (newList: ListTypes) => {
+    post = (newList: IList) => {
         fetch(url + '/lists', {
             method: 'POST',
             headers: {
@@ -78,7 +78,7 @@ class ListsStore {
             });
     }
 
-    put = (list: ListTypes, listID: string) => {
+    put = (list: IList, listID: string) => {
         fetch(url + `/lists/${listID}`, {
             method: 'PUT',
             headers: {

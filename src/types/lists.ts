@@ -1,12 +1,19 @@
 import dayjs, { Dayjs } from 'dayjs';
-export interface ListTypes {
+export interface IList {
     id: string;
     title: string;
-    cards: CardTypes[];
+    cards: ICard[];
 }
 
-export interface CardTypes {
+export interface ICard {
     id: string;
     text: string;
     deadline?: Dayjs;
+}
+
+export interface ICustomer {
+    id: number | string;
+    name: string;
+    country: string;
+    image: string;
 }
