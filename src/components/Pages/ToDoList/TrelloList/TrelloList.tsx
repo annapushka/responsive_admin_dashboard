@@ -1,5 +1,5 @@
 import React from "react";
-import { CardTypes } from "../../../../types/lists";
+import { ICard } from "../../../../types/lists";
 
 import { Draggable, Droppable } from "@hello-pangea/dnd";
 
@@ -11,7 +11,7 @@ import TrelloElementMenu from "./TrelloElementMenu/TrelloElementMenu";
 
 type Props = {
   title: string;
-  cards: CardTypes[];
+  cards: ICard[];
   id: string;
   indexOfList: number;
 };

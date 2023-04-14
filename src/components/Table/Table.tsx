@@ -1,20 +1,20 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import './Table.scss';
 
-type Props = {
 
-};
+export const Table = () => {
+    const { t } = useTranslation();
 
-export const Table = (props: Props) => {
     return (
         <table className='table-details'>
             <thead>
                 <tr>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td>Payment</td>
-                    <td>Status</td>
+                    <td>{t('pages.dashboard.details.tableCol.name')}</td>
+                    <td>{t('pages.dashboard.details.tableCol.price')}</td>
+                    <td>{t('pages.dashboard.details.tableCol.payment')}</td>
+                    <td>{t('pages.dashboard.details.tableCol.status')}</td>
                 </tr>
             </thead>
             <tbody>
@@ -22,49 +22,49 @@ export const Table = (props: Props) => {
                     <td>Star Refrigerator</td>
                     <td>$1200</td>
                     <td>Paid</td>
-                    <td><span className='status delivered'>Delivered</span></td>
+                    <td><span className='status delivered'>{t('pages.dashboard.details.status.delivered')}</span></td>
                 </tr>
                 <tr>
                     <td>Window Coolers</td>
                     <td>$110</td>
                     <td>Due</td>
-                    <td><span className='status pending'>Pending</span></td>
+                    <td><span className='status pending'>{t('pages.dashboard.details.status.pending')}</span></td>
                 </tr>
                 <tr>
                     <td>Speakers</td>
                     <td>$620</td>
                     <td>Paid</td>
-                    <td><span className='status return'>Return</span></td>
+                    <td><span className='status return'>{t('pages.dashboard.details.status.return')}</span></td>
                 </tr>
                 <tr>
                     <td>Hp Laptop</td>
                     <td>$6000</td>
                     <td>Due</td>
-                    <td><span className='status inprogress'>In Progress</span></td>
+                    <td><span className='status inprogress'>{t('pages.dashboard.details.status.inProgress')}</span></td>
                 </tr>
                 <tr>
                     <td>Star Refrigerator</td>
                     <td>$1200</td>
                     <td>Paid</td>
-                    <td><span className='status delivered'>Delivered</span></td>
+                    <td><span className='status delivered'>{t('pages.dashboard.details.status.delivered')}</span></td>
                 </tr>
                 <tr>
                     <td>Window Coolers</td>
                     <td>$110</td>
                     <td>Due</td>
-                    <td><span className='status delivered'>Pending</span></td>
+                    <td><span className='status delivered'>{t('pages.dashboard.details.status.pending')}</span></td>
                 </tr>
                 <tr>
                     <td>Speakers</td>
                     <td>$620</td>
                     <td>Paid</td>
-                    <td><span className='status return'>Return</span></td>
+                    <td><span className='status return'>{t('pages.dashboard.details.status.return')}</span></td>
                 </tr>
                 <tr>
                     <td>Hp Laptop</td>
                     <td>$6000</td>
                     <td>Due</td>
-                    <td><span className='status inprogress'>In Progress</span></td>
+                    <td><span className='status inprogress'>{t('pages.dashboard.details.status.inProgress')}</span></td>
                 </tr>
             </tbody>
         </table>

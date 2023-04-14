@@ -1,171 +1,265 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import dayjs, { Dayjs } from 'dayjs';
-import { ListTypes } from "../types/lists";
+import { IList } from "../types/lists";
 
+const url = 'http://localhost:3001';
 
 class ListsStore {
 
-    listID = 10;
-    cardID = 10;
-
-    lists: ListTypes[] = [{
-        id: `list-${0}`,
-        title: 'To-do list',
-        cards: []
-    }, {
-        id: `list-${1}`,
-        title: 'In progress',
-        cards: []
-    }, {
-        id: `list-${2}`,
-        title: 'Done',
-        cards: []
-    }]
-
+    listID = 1;
+    cardID = 1;
+    isLoaded = false;
+    lists: IList[] = [];
+    error = undefined;
 
     constructor() {
         makeAutoObservable(this);
     }
 
+    loadData = () => {
+        fetch(url + '/lists')
+            .then((result) => {
+                if (result.ok) {
+                    return result.json();
+                } else {
+                    throw new Error('Something went wrong ...');
+                }
+            })
+            .then((lists) => {
+                runInAction(() => {
+                    this.lists = lists;
+                    this.isLoaded = true;
+                });
+            }).catch(error => {
+                this.isLoaded = true;
+                this.error = error;
+            });
+    }
+    
+    post = (newList: IList) => {
+        fetch(url + '/lists', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(newList)
+        })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Something went wrong ...');
+            }
+        })
+        .then(() => this.loadData())
+        .catch(error => {
+            this.error = error;
+        });
+    }
+
+    delete = (listID: string) => {
+        fetch(url + `/lists/${listID}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong ...');
+                }
+            })
+            .then(() => this.loadData())
+            .catch(error => {
+                this.isLoaded = true;
+                this.error = error;
+            });
+    }
+
+    put = (list: IList, listID: string) => {
+        fetch(url + `/lists/${listID}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(list)
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong ...');
+                }
+            })
+            .then(() => this.loadData())
+            .catch(error => {
+                this.error = error;
+            });
+    }
+
     addList = (title: string) => {
-        this.listID++;
-        const newList = {
-            id: `list-${this.listID}`,
-            title: title,
-            cards: []
+        if (title.length) {
+            this.listID++;
+            const newList = {
+                id: `list-${this.listID}`,
+                title: title,
+                cards: []
+            }
+            this.post(newList)
         }
-        this.lists = [...this.lists, newList];
     }
 
-    addCard = (text: string, listID: number) => {
-        const newCard = {
-            text: text,
-            id: `card-${this.cardID}`,
-        };
-        const list = this.lists.find(list => `${listID}` === list.id);
-        if(list) {
-            list.cards = [...list.cards, newCard];
+    addCard = (text: string, listID: string) => {
+        if (text.length) {
+            const newCard = {
+                text: text,
+                id: `card-${this.cardID}`,
+            };
+            const list = this.lists.find(list => `${listID}` === list.id);
+            if (list) {
+                list.cards = [...list.cards, newCard];
+                this.put(list, listID)
+            }
+            this.cardID = this.getCardId();
         }
-        this.lists = [...this.lists];
-        this.cardID = this.getCardId();
     }
 
-    getCardId = () => Math.floor(Math.random()*10000);
+    getCardId = () => Math.floor(Math.random() * 10000);
 
     duplicateItem = (id: string, type: string, listID: string) => {
-        if(type === 'list') {
+        if (type === 'list') {
             this.listID++;
             const list = this.lists.find(list => id === list.id);
-    
-            if(list) {
+
+            if (list) {
                 const newList = {
                     id: `list-${this.listID}`,
                     title: list.title,
                     cards: list.cards
                 }
-                this.lists = [...this.lists, newList];
+                this.post(newList)
             }
         }
-        if(type === 'card') {
+        if (type === 'card') {
             this.cardID = this.getCardId();
             const list = this.lists.find(list => listID === list.id);
-            if(list) {
+            if (list) {
                 const card = list.cards.find(card => id === card.id);
-                if(card) {
+                if (card) {
                     const newCard = {
                         id: `card-${this.cardID}`,
                         text: card.text
                     }
                     list.cards = [...list.cards, newCard];
                 }
-            } 
+                this.put(list, listID)
+            }
         }
-        this.lists = [...this.lists];
     }
 
     archiveItem = (id: string, type: string, listID: string) => {
-        if(type === 'list') {
-            const list = this.lists.find(list => id === list.id);
-            if(list) {
-                this.lists.splice(this.lists.indexOf(list), 1);
-            }
+        if (type === 'list') {
+            this.delete(listID)
         }
-        if(type === 'card') {
+        if (type === 'card') {
             const list = this.lists.find(list => listID === list.id);
-            if(list) {
+            if (list) {
                 const card = list.cards.find(card => id === card.id);
-                if(card) {
+                if (card) {
                     list.cards.splice(list.cards.indexOf(card), 1);
                     list.cards = [...list.cards];
                 }
-            } 
+                this.put(list, listID)
+            }
         }
-        this.lists = [...this.lists];
     }
 
     editItem = (id: string, text: string, type: string, listID: string) => {
-        if(type === 'list') {
+        if (type === 'list') {
             const list = this.lists.find(list => id === list.id);
-            if(list) {
+            if (list) {
                 list.title = text;
+                this.put(list, listID)
             }
-        } 
-        if(type === 'card') {
+        }
+        if (type === 'card') {
             const list = this.lists.find(list => listID === list.id);
-            if(list) {
+            if (list) {
                 const card = list.cards.find(card => id === card.id);
-                if(card) {
-                    card.text = text; 
+                if (card) {
+                    card.text = text;
                     list.cards = [...list.cards];
                 }
-            } 
+                this.put(list, listID)
+            }
         }
-        this.lists = [...this.lists];
     }
 
     addDeadline = (id: string, listID: string, deadline: Dayjs) => {
-            const list = this.lists.find(list => listID === list.id);
-            if(list) {
-                const card = list.cards.find(card => id === card.id);
-                if(card) {
-                    card.deadline = deadline; 
-                    list.cards = [...list.cards];
-                }
-            } 
-        this.lists = [...this.lists];
+        const list = this.lists.find(list => listID === list.id);
+        if (list) {
+            const card = list.cards.find(card => id === card.id);
+            if (card) {
+                card.deadline = deadline;
+                list.cards = [...list.cards];
+                this.put(list, listID)
+            }
+        }
     }
 
     sort = (result: any) => {
-        const {destination, source, type} = result;
+        const { destination, source, type } = result;
 
         //dragging lists around
-        if(type === 'list') {
+        if (type === 'list') {
             const list = this.lists.splice(source.index, 1);
             this.lists.splice(destination.index, 0, ...list);
-        }
-        else  if(type === 'card') {
+        } else if (type === 'card') {
 
             // in the same list
-            if(source.droppableId === destination.droppableId) {
+            if (source.droppableId === destination.droppableId) {
                 const list = this.lists.find(list => source.droppableId === list.id);
-                if(list) {
+                if (list) {
                     const droppableCard = list.cards.splice(source.index, 1);
                     list.cards.splice(destination.index, 0, ...droppableCard);
                 }
             }
 
             // other list
-            if(source.droppableId !== destination.droppableId) {
+            if (source.droppableId !== destination.droppableId) {
                 const listStart = this.lists.find(list => source.droppableId === list.id);
                 let droppableCard;
-                if(listStart) {
+                if (listStart) {
                     droppableCard = listStart.cards.splice(source.index, 1);
                 }
                 const listEnd = this.lists.find(list => destination.droppableId === list.id);
-                if(listEnd && droppableCard) {
+                if (listEnd && droppableCard) {
                     listEnd.cards.splice(destination.index, 0, ...droppableCard);
                 }
             }
+
+            this.lists.forEach(list => {
+                fetch(url + `/lists/${list.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify(list)
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error('Something went wrong ...');
+                        }
+                    })
+                    .catch(error => {
+                        this.error = error;
+                    });
+            })
+            this.loadData()
         }
     }
 }

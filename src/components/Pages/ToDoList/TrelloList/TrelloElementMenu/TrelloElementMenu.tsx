@@ -15,6 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import TrelloElementMenuInput from './TrelloElementMenuInput';
 import DatePicker from '../../../../DatePicker/DatePicker';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
     id: string;
@@ -31,6 +32,8 @@ const TrelloElementMenu = observer(({ id, text, type, listID }: Props) => {
     const [deadlineInput, setDeadlineInput] = useState(false);
 
     const open = Boolean(anchorEl);
+
+    const { t } = useTranslation();
 
     const handleClick = (event: MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -96,11 +99,11 @@ const TrelloElementMenu = observer(({ id, text, type, listID }: Props) => {
                 )}
                 <MenuItem onClick={handleEdit} disableRipple>
                     <EditIcon />
-                    Edit
+                    {t('buttons.edit')}
                 </MenuItem>
                 <MenuItem onClick={handleDuplicate} disableRipple itemID={id}>
                     <FileCopyIcon />
-                    Duplicate
+                    {t('buttons.duplicate')}
                 </MenuItem>
                 {type === 'card' && (
                     <MenuItem onClick={handleInputDeadline} disableRipple itemID={id}>
@@ -109,7 +112,7 @@ const TrelloElementMenu = observer(({ id, text, type, listID }: Props) => {
                         ) : (
                             <>
                                 <AlarmIcon />
-                                Deadline
+                                {t('buttons.deadline')}
                             </>
                         )}
                     </MenuItem>
@@ -117,7 +120,7 @@ const TrelloElementMenu = observer(({ id, text, type, listID }: Props) => {
                 <Divider sx={{ my: 0.5 }} />
                 <MenuItem onClick={handleArchive} disableRipple>
                     <ArchiveIcon />
-                    Archive
+                    {t('buttons.archive')}
                 </MenuItem>
             </StyledMenu>
         </div>

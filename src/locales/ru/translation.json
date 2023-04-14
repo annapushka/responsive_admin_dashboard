@@ -1,6 +1,41 @@
 {
     "pages": {
-
+        "toDoList": {
+            "addCard": "Добавить карточку",
+            "addList": "Добавить лист",
+            "addCardTitle": "Введите текст карточки...",
+            "addListTitle": "Введите название листа...",
+            "lists": {
+                "toDo": "Список дел",
+                "inProgress": "В работе",
+                "done": "Выполнено"
+            }
+        },
+        "dashboard": {
+            "cards": {
+                "deilyViwes": "Просмотры",
+                "sales": "Продажи",
+                "comments": "Комментарии",
+                "earning": "Прибыль"
+            },
+            "details": {
+                "recentOrders": "Последние заказы",
+                "recentCustomers": "Последние клиенты",
+                "tableCol": {
+                    "name": "Имя",
+                    "price": "Цена",
+                    "payment": "Платеж",
+                    "status": "Статус"
+                },
+                "status": {
+                    "delivered": "Доставлено",
+                    "pending": "В ожидании",
+                    "return": "Возврат",
+                    "inProgress": "В процессе",
+                    "viewAll": "Просмотреть все"
+                }
+            }
+        }
     },
     "topBar": {
         "search": "Поиск"
@@ -16,5 +51,14 @@
             "password": "Пароль",
             "signOut": "Выход"
         }
+    },
+    "converter": {
+        "placeholder": "Сумма"
+    },
+    "buttons": {
+        "edit": "Редактировать",
+        "duplicate": "Дублировать",
+        "archive": "В архив",
+        "deadline": "Добавить срок"
     }
 }

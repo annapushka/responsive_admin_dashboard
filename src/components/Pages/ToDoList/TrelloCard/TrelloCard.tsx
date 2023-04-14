@@ -35,14 +35,17 @@ const TrelloCard = ({ text, id, indexOfCard, listID, deadline }: Props) => {
             {deadline && (
 
               <Typography variant="body2" className={deadlineStatus}>
-                <AlarmIcon fontSize="small" />
-                {deadline.format('DD.MM.YYYY')}
+                <>
+                  <AlarmIcon fontSize="small" />
+                  {dayjs(deadline).format('DD/MM/YYYY')}
+                </>
               </Typography>
             )}
           </Card>
         </div>
-      )}
-    </Draggable>
+      )
+      }
+    </Draggable >
   );
 };
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from "react";
 
 import './CustomersBox.scss';
 
@@ -12,70 +12,15 @@ import Customer7 from '../../img/customers/customer_7.jpg';
 import Customer8 from '../../img/customers/customer_8.jpg';
 import Customer9 from '../../img/customers/customer_9.jpg';
 import Customer10 from '../../img/customers/customer_10.jpg';
+import dashboardStore from '../../store/dashboardStore';
 
 
 export const CustomersBox = () => {
-    const customers = [{
-        id: 11,
-        name: "Leanne Graham",
-        country: "Italy",
-        image: Customer1
-    },
-    {
-        id: 12,
-        name: "Clementine Bauch",
-        country: "Sweden",
-        image: Customer2
-    },
-    {
-        id: 13,
-        name: "Ervin Howell",
-        country: "Malaysia",
-        image: Customer3
-    },
-    {
-        id: 14,
-        name: "Chelsey Dietrich",
-        country: "Finland",
-        image: Customer4
-    },
-    {
-        id: 15,
-        name: "Patricia Lebsack",
-        country: "Philippines",
-        image: Customer5
-    },
-    {
-        id: 16,
-        name: "Dennis Schulist",
-        country: "Germany",
-        image: Customer6
-    },
-    {
-        id: 17,
-        name: "Kurtis Weissnat",
-        country: "Russia",
-        image: Customer7
-    },
-    {
-        id: 18,
-        name: "Clementina DuBuque",
-        country: "Bulgaria",
-        image: Customer8
-    },
-    {
-        id: 19,
-        name: "Nicholas Runolfsdottir",
-        country: "USA",
-        image: Customer9
-    },
-    {
-        id: 10,
-        name: "Glenna Reichert",
-        country: "Serbia",
-        image: Customer10
-    }
-    ]
+    const { customers, loadData } = dashboardStore;
+
+    useEffect(() => {
+        loadData()
+    })
 
     return (
         <div className="customerBox">

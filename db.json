@@ -1,0 +1,97 @@
+{
+  "lists": [{
+      "id": "list-0",
+      "title": "Todo",
+      "cards": [{
+          "id": "card-1387",
+          "text": "Lesson1"
+        },
+        {
+          "id": "card-8682",
+          "text": "Lesson2"
+        }
+      ]
+    },
+    {
+      "id": "list-1",
+      "title": "In progress",
+      "cards": [{
+          "text": "Learn TS",
+          "id": "card-315",
+          "deadline": "2023-03-26T08:02:06.000Z"
+        },
+        {
+          "id": "card-4991",
+          "text": "Learn TS",
+          "deadline": "2023-03-31T08:51:26.000Z"
+        }
+      ]
+    },
+    {
+      "id": "list-2",
+      "title": "Done",
+      "cards": []
+    }
+  ],
+  "customers": [{
+      "id": 11,
+      "name": "Leanne Graham",
+      "country": "Italy",
+      "image": "Customer1"
+    },
+    {
+      "id": 12,
+      "name": "Clementine Bauch",
+      "country": "Sweden",
+      "image": "Customer2"
+    },
+    {
+      "id": 13,
+      "name": "Ervin Howell",
+      "country": "Malaysia",
+      "image": "Customer3"
+    },
+    {
+      "id": 14,
+      "name": "Chelsey Dietrich",
+      "country": "Finland",
+      "image": "Customer4"
+    },
+    {
+      "id": 15,
+      "name": "Patricia Lebsack",
+      "country": "Philippines",
+      "image": "Customer5"
+    },
+    {
+      "id": 16,
+      "name": "Dennis Schulist",
+      "country": "Germany",
+      "image": "Customer6"
+    },
+    {
+      "id": 17,
+      "name": "Kurtis Weissnat",
+      "country": "Russia",
+      "image": "Customer7"
+    },
+    {
+      "id": 18,
+      "name": "Clementina DuBuque",
+      "country": "Bulgaria",
+      "image": "Customer8"
+    },
+    {
+      "id": 19,
+      "name": "Nicholas Runolfsdottir",
+      "country": "USA",
+      "image": "Customer9"
+    },
+    {
+      "id": 10,
+      "name": "Glenna Reichert",
+      "country": "Serbia",
+      "image": "Customer10"
+    }
+  ]
+}

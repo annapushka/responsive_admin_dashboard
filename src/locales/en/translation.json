@@ -1,6 +1,41 @@
 {
     "pages": {
-
+        "toDoList": {
+            "addCard": "Add another card",
+            "addList": "Add another list",
+            "addCardTitle": "Enter a text for this card...",
+            "addListTitle": "Enter list title...",
+            "lists": {
+                "toDo": "To-do list",
+                "inProgress": "In progress",
+                "done": "Done"
+            }
+        },
+        "dashboard": {
+            "cards": {
+                "deilyViwes": "Deily Viwes",
+                "sales": "Sales",
+                "comments": "Comments",
+                "earning": "Earning"
+            },
+            "details": {
+                "recentOrders": "Recent Orders",
+                "recentCustomers": "Recent Customers",
+                "tableCol": {
+                    "name": "Name",
+                    "price": "Price",
+                    "payment": "Payment",
+                    "status": "Status"
+                },
+                "status": {
+                    "delivered": "Delivered",
+                    "pending": "Pending",
+                    "return": "Return",
+                    "inProgress": "In Progress",
+                    "viewAll": "View All"
+                }
+            }
+        }
     },
     "topBar": {
         "search": "Search"
@@ -16,5 +51,14 @@
             "password": "Password",
             "signOut": "Sign Out"
         }
+    },
+    "converter": {
+        "placeholder": "Amount"
+    },
+    "buttons": {
+        "edit": "Edit",
+        "duplicate": "Duplicate",
+        "archive": "Archive",
+        "deadline": "Deadline"
     }
 }

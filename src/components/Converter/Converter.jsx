@@ -4,6 +4,7 @@ import arrow from "../../img/arrow.svg";
 import useReactIpLocation from "react-ip-details";
 
 import './Converter.scss';
+import { useTranslation } from 'react-i18next';
 
 function Converter() {
     const { currency } = useReactIpLocation({});
@@ -57,13 +58,14 @@ function Converter() {
         setOutput((isNaN(result) || result < 0) ? 0 : result.toFixed(3));
     }
 
+    const { t } = useTranslation();
 
     return (
         <div className='converter'>
             <div className="converter__wrapper">
                 <input type="number"
                     className="converter__input"
-                    placeholder="Amount"
+                    placeholder={t('converter.placeholder')}
                     min={0}
                     onChange={(e) => setInput(+e.target.value)} />
                 <div className="converter__currency">
