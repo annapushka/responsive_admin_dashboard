@@ -8,9 +8,10 @@ import dashboardStore from '../../store/dashboardStore';
 export const CustomersBox = () => {
     const { customers, loadData } = dashboardStore;
 
+
     useEffect(() => {
         loadData()
-    })
+    }, [])
 
     return (
         <div className="customerBox">

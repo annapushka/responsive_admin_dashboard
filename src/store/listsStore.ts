@@ -78,6 +78,51 @@ class ListsStore {
             });
     }
 
+    deleteAllLisits = () => {
+        this.lists.forEach(list => {
+            fetch(url + `/lists/${list.id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                }
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Something went wrong ...');
+                    }
+                })
+                .catch(error => {
+                    this.isLoaded = true;
+                    this.error = error;
+                });
+        })
+        
+    }
+
+    postAllLists = () => {
+        this.lists.forEach(list => {
+            fetch(url + '/lists', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(list)
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong ...');
+                }
+            })
+            .catch(error => {
+                this.error = error;
+            });
+        });
+    }
+
     put = (list: IList, listID: string) => {
         fetch(url + `/lists/${listID}`, {
             method: 'PUT',
@@ -216,6 +261,10 @@ class ListsStore {
         if (type === 'list') {
             const list = this.lists.splice(source.index, 1);
             this.lists.splice(destination.index, 0, ...list);
+            this.deleteAllLisits();
+            this.postAllLists();
+            this.loadData();
+            
         } else if (type === 'card') {
 
             // in the same list

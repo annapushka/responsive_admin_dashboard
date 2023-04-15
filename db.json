@@ -1,39 +1,23 @@
 {
-  "lists": [{
-      "id": "list-0",
-      "title": "Todo",
-      "cards": [{
-          "id": "card-1387",
-          "text": "Lesson1"
-        },
-        {
-          "id": "card-8682",
-          "text": "Lesson2"
-        }
-      ]
+  "lists": [
+    {
+      "id": "list-5",
+      "title": "4",
+      "cards": []
     },
     {
-      "id": "list-1",
-      "title": "In progress",
-      "cards": [{
-          "text": "Learn TS",
-          "id": "card-315",
-          "deadline": "2023-03-26T08:02:06.000Z"
-        },
-        {
-          "id": "card-4991",
-          "text": "Learn TS",
-          "deadline": "2023-03-31T08:51:26.000Z"
-        }
-      ]
+      "id": "list-3",
+      "title": "2",
+      "cards": []
     },
     {
       "id": "list-2",
-      "title": "Done",
+      "title": "1",
       "cards": []
     }
   ],
-  "customers": [{
+  "customers": [
+    {
       "id": 11,
       "name": "Leanne Graham",
       "country": "Italy",
