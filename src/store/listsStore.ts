@@ -261,9 +261,9 @@ class ListsStore {
         if (type === 'list') {
             const list = this.lists.splice(source.index, 1);
             this.lists.splice(destination.index, 0, ...list);
-            this.deleteAllLisits();
-            this.postAllLists();
-            this.loadData();
+            // this.deleteAllLisits();
+            // this.postAllLists();
+            // this.loadData();
             
         } else if (type === 'card') {
 
