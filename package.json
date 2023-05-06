@@ -1,7 +1,7 @@
 {
-  "name": "responsive-admin-dashboard",
+  "name": "responsive_admin_dashboard",
   "version": "0.1.0",
-  "homepage": "https://gitname.github.io/responsive-admin-dashboard",
+  "homepage": "https://gitname.github.io/responsive_admin_dashboard",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",

@@ -13,7 +13,7 @@ Dashboard adapted to any device.
 
 ## Result
 
-[Сlick me](https://annapushka.github.io/responsive-admin-dashboard)<br>
+[Сlick me](https://annapushka.github.io/responsive_admin_dashboard)<br>
 <p>Сurrently working on a Trello clone.<br><img src="src/img/result1.1.jpg" alt="result" width="100%"/>
 <img src="src/img/result1.2.jpg" alt="result" width="100%"/>
 <img src="src/img/result1.jpg" alt="result" width="100%"/>
